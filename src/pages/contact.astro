@@ -1,0 +1,266 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Contact | Autosoftronics"
+  description="Expliquez votre besoin : diagnostic, programmation, réparation. Réponse rapide."
+>
+  <main class="relative overflow-hidden">
+    {/* Background cinema */}
+    <div class="absolute inset-0 -z-30">
+      <img
+        src="/assets/brand/bg-atelier.jpg"
+        alt=""
+        class="w-full h-full object-cover brightness-[.55] contrast-110 scale-[1.03]"
+        loading="lazy"
+      />
+    </div>
+
+    {/* Overlays (lisibilité + ambiance) */}
+    <div class="absolute inset-0 -z-20 bg-gradient-to-b from-black/80 via-black/65 to-base-100"></div>
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_30%_25%,rgba(139,92,246,0.16),transparent_55%)]"></div>
+    <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_75%_45%,rgba(59,130,246,0.10),transparent_60%)]"></div>
+
+    <section class="py-20 md:py-24">
+      <div class="max-w-6xl mx-auto px-4">
+        {/* Header */}
+        <div class="text-center">
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
+            <span class="h-2 w-2 rounded-full bg-success"></span>
+            Contact
+          </div>
+
+          <h1 class="mt-6 text-4xl md:text-5xl font-bold tracking-tight">
+            Faites votre demande
+          </h1>
+
+          <p class="mt-4 text-white/70 max-w-2xl mx-auto leading-relaxed">
+            Décrivez votre véhicule et le problème. On vous répond rapidement avec une solution claire.
+          </p>
+        </div>
+
+        {/* Layout */}
+        <div class="mt-12 grid gap-8 lg:grid-cols-[1.15fr_.85fr] items-start">
+          {/* FORM CARD */}
+          <div class="contact-card relative rounded-3xl border border-white/10 bg-base-200/35 backdrop-blur-xl p-6 md:p-8">
+            {/* light sweep */}
+            <div class="sweep absolute inset-0 rounded-3xl pointer-events-none"></div>
+
+            <div class="relative">
+              <div class="mb-6 flex items-start justify-between gap-4">
+                <div>
+                  <h2 class="text-xl font-semibold">Formulaire</h2>
+                  <p class="mt-1 text-sm text-white/60">
+                    Plus c’est précis, plus on vous aide vite.
+                  </p>
+                </div>
+
+                <div class="hidden md:flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/70">
+                  <span class="h-2 w-2 rounded-full bg-success"></span>
+                  Réponse rapide
+                </div>
+              </div>
+
+              <form method="post" action="" class="grid gap-4">
+                <div class="grid md:grid-cols-2 gap-4">
+                  <label class="form-control">
+                    <div class="label">
+                      <span class="label-text text-white/80">Nom</span>
+                    </div>
+                    <input
+                      type="text"
+                      name="name"
+                      required
+                      placeholder="Votre nom"
+                      class="input input-bordered bg-base-100/10 border-white/15 focus:border-primary focus:outline-none"
+                    />
+                  </label>
+
+                  <label class="form-control">
+                    <div class="label">
+                      <span class="label-text text-white/80">Téléphone</span>
+                    </div>
+                    <input
+                      type="tel"
+                      name="phone"
+                      placeholder="+32 …"
+                      class="input input-bordered bg-base-100/10 border-white/15 focus:border-primary focus:outline-none"
+                    />
+                  </label>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-4">
+                  <label class="form-control">
+                    <div class="label">
+                      <span class="label-text text-white/80">Email</span>
+                    </div>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      placeholder="vous@exemple.com"
+                      class="input input-bordered bg-base-100/10 border-white/15 focus:border-primary focus:outline-none"
+                    />
+                  </label>
+
+                  <label class="form-control">
+                    <div class="label">
+                      <span class="label-text text-white/80">Véhicule</span>
+                    </div>
+                    <input
+                      type="text"
+                      name="car"
+                      placeholder="Ex: BMW 330e • 2018"
+                      class="input input-bordered bg-base-100/10 border-white/15 focus:border-primary focus:outline-none"
+                    />
+                  </label>
+                </div>
+
+                <label class="form-control">
+                  <div class="label">
+                    <span class="label-text text-white/80">Votre demande</span>
+                    <span class="label-text-alt text-white/45">Diagnostic / Programmation / Réparation</span>
+                  </div>
+                  <textarea
+                    name="message"
+                    required
+                    rows="6"
+                    placeholder="Décrivez le symptôme, codes défauts si vous en avez, et ce que vous souhaitez (ex: AdBlue, ECU, options cachées…)."
+                    class="textarea textarea-bordered bg-base-100/10 border-white/15 focus:border-primary focus:outline-none"
+                  ></textarea>
+                </label>
+
+                {/* Consent / reassurance */}
+                <div class="mt-1 text-xs text-white/50">
+                  En envoyant ce formulaire, vous acceptez d’être recontacté au sujet de votre demande.
+                </div>
+
+                <div class="mt-4 flex flex-col sm:flex-row gap-3">
+                  <button class="btn btn-primary btn-lg flex-1 shadow-lg shadow-primary/25">
+                    Envoyer la demande
+                  </button>
+
+                  <a
+                    href="/services"
+                    class="btn btn-outline btn-lg border-white/20 text-white hover:bg-white/10"
+                  >
+                    Voir les services
+                  </a>
+                </div>
+
+                {/* micro trust */}
+                <div class="mt-5 grid gap-3 sm:grid-cols-3">
+                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
+                    <div class="font-semibold text-white/85">Méthode</div>
+                    <div class="text-xs text-white/55">Diagnostic → intervention → validation</div>
+                  </div>
+                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
+                    <div class="font-semibold text-white/85">Sécurité</div>
+                    <div class="text-xs text-white/55">Sauvegarde ECU avant écriture</div>
+                  </div>
+                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
+                    <div class="font-semibold text-white/85">Clarté</div>
+                    <div class="text-xs text-white/55">Compte-rendu & reco concrètes</div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+
+          {/* SIDE CARD */}
+          <aside class="space-y-4">
+            <div class="rounded-3xl border border-white/10 bg-base-200/25 backdrop-blur-xl p-6">
+              <h3 class="text-lg font-semibold">Réponse la plus rapide</h3>
+              <p class="mt-2 text-sm text-white/65">
+                Si c’est urgent, contactez-nous directement :
+              </p>
+
+              <div class="mt-5 grid gap-3">
+                <a class="btn btn-outline border-white/20 text-white hover:bg-white/10" href="tel:+32470105034">
+                  Appeler
+                </a>
+
+                <a class="btn btn-outline border-white/20 text-white hover:bg-white/10" href="mailto:contact@autosoftronics.com">
+                  Envoyer un email
+                </a>
+
+                <a class="btn btn-primary shadow-lg shadow-primary/25" href="https://wa.me/32470105034" target="_blank" rel="noreferrer">
+                  WhatsApp
+                </a>
+              </div>
+
+            </div>
+
+            <div class="rounded-3xl border border-white/10 bg-base-200/25 backdrop-blur-xl p-6">
+              <h3 class="text-lg font-semibold">Infos pratiques</h3>
+
+              <div class="mt-4 space-y-3 text-sm text-white/70">
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-primary"></span>
+                  <div>
+                    <div class="font-semibold text-white/85">Adresse</div>
+                    <div class="text-white/60">Chau. Impériale 97, 6060 Charleroi</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
+                  <div>
+                    <div class="font-semibold text-white/85">Horaires</div>
+                    <div class="text-white/60">Lun–Sam • 09:00–18:00 (exemple)</div>
+                  </div>
+                </div>
+
+                <div class="flex items-start gap-3">
+                  <span class="mt-1 h-2 w-2 rounded-full bg-accent"></span>
+                  <div>
+                    <div class="font-semibold text-white/85">Ce qu’on te demande</div>
+                    <div class="text-white/60">Marque + modèle + année + symptômes / défauts.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rounded-3xl border border-white/10 bg-base-200/25 backdrop-blur-xl p-6">
+              <h3 class="text-lg font-semibold">Pourquoi c’est simple</h3>
+              <ul class="mt-4 space-y-2 text-sm text-white/65">
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
+                  Réponse rapide et claire
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
+                  Procédure maîtrisée
+                </li>
+                <li class="flex items-center gap-2">
+                  <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
+                  Validation avant restitution
+                </li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <style>
+      .contact-card{ position: relative; overflow: hidden; }
+      .contact-card .sweep::before{
+        content:"";
+        position:absolute; inset:-50%;
+        background: linear-gradient(115deg, transparent 45%, rgba(255,255,255,.08) 50%, transparent 55%);
+        transform: translateX(-35%) rotate(8deg);
+        opacity: 0;
+        transition: transform .7s ease, opacity .7s ease;
+      }
+      .contact-card:hover .sweep::before{
+        opacity: 1;
+        transform: translateX(35%) rotate(8deg);
+      }
+      @media (prefers-reduced-motion: reduce){
+        .contact-card .sweep::before{ transition:none; }
+      }
+    </style>
+  </main>
+</BaseLayout>

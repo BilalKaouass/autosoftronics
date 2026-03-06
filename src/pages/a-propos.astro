@@ -1,0 +1,309 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Reveal from "../components/Reveal.astro";
+
+const title = "À propos | Autosoftronics";
+const description =
+  "Découvrez Autosoftronics : nos valeurs, notre méthode de travail et notre atelier dédié à l’électromécanique automobile.";
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- HERO -->
+  <section class="relative overflow-hidden">
+    <!-- Glow background -->
+    <div class="pointer-events-none absolute inset-0">
+      <div class="absolute -top-24 left-1/2 h-72 w-[52rem] -translate-x-1/2 rounded-full blur-3xl opacity-30 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+      <div class="absolute -bottom-32 left-1/2 h-72 w-[52rem] -translate-x-1/2 rounded-full blur-3xl opacity-20 bg-gradient-to-r from-secondary via-primary to-accent"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 py-20 relative">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-7">
+          <Reveal>
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+              Autosoftronics,
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-accent to-secondary">
+                l’exigence dans l’électromécanique auto
+              </span>
+              .
+            </h1>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <p class="mt-6 text-white/70 text-lg max-w-2xl">
+              Nous aidons les conducteurs et les professionnels à résoudre des problèmes complexes
+              (diagnostic, programmation, réparation) avec une approche claire, précise et orientée résultat.
+            </p>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a class="btn btn-primary" href="/contact">Nous contacter</a>
+              <a class="btn btn-ghost border border-white/15" href="/services">Voir nos services</a>
+            </div>
+          </Reveal>
+        </div>
+
+        <div class="lg:col-span-5">
+          <Reveal delay={180}>
+            <div class="card bg-base-200 border border-white/10 shadow-xl overflow-hidden">
+              <div class="card-body">
+                <div class="flex items-center gap-3">
+                  <img
+                    src="/assets/brand/icon.png"
+                    alt="Autosoftronics"
+                    class="w-10 h-10"
+                    loading="lazy"
+                    width="40"
+                    height="40"
+                  />
+                  <div>
+                    <div class="font-semibold text-lg">Autosoftronics</div>
+                    <div class="text-white/60 text-sm">Diagnostic • Programmation • Réparation</div>
+                  </div>
+                </div>
+
+                <div class="mt-6 grid grid-cols-3 gap-3">
+                  <div class="rounded-xl bg-base-300/60 border border-white/10 p-3 text-center">
+                    <div class="text-sm text-white/60">Approche</div>
+                    <div class="font-semibold">Pro</div>
+                  </div>
+                  <div class="rounded-xl bg-base-300/60 border border-white/10 p-3 text-center">
+                    <div class="text-sm text-white/60">Objectif</div>
+                    <div class="font-semibold">Résultat</div>
+                  </div>
+                  <div class="rounded-xl bg-base-300/60 border border-white/10 p-3 text-center">
+                    <div class="text-sm text-white/60">Délai</div>
+                    <div class="font-semibold">Rapide</div>
+                  </div>
+                </div>
+
+                <div class="mt-6 rounded-2xl border border-white/10 bg-gradient-to-r from-primary/15 via-accent/10 to-secondary/15 p-4">
+                  <p class="text-white/70 text-sm">
+                    Notre priorité : fournir un diagnostic fiable, expliquer clairement les options,
+                    et proposer une solution durable — sans “blabla”.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALEURS -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <Reveal>
+      <h2 class="text-3xl md:text-4xl font-bold">Nos valeurs</h2>
+    </Reveal>
+    <Reveal delay={100}>
+      <p class="mt-4 text-white/70 max-w-2xl">
+        Trois piliers qui guident chacune de nos interventions, du premier échange jusqu’à la livraison.
+      </p>
+    </Reveal>
+
+    <div class="mt-10 grid md:grid-cols-3 gap-6">
+      <Reveal>
+        <div class="card bg-base-200 border border-white/10">
+          <div class="card-body">
+            <div class="badge badge-primary badge-outline">Transparence</div>
+            <h3 class="card-title mt-2">Explications claires</h3>
+            <p class="text-white/70">
+              On vous dit ce qu’on observe, pourquoi, et quelles sont les options — sans jargon inutile.
+            </p>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={120}>
+        <div class="card bg-base-200 border border-white/10">
+          <div class="card-body">
+            <div class="badge badge-secondary badge-outline">Précision</div>
+            <h3 class="card-title mt-2">Diagnostic fiable</h3>
+            <p class="text-white/70">
+              Mesures, contrôles, logique de panne : on cherche la cause, pas seulement le symptôme.
+            </p>
+          </div>
+        </div>
+      </Reveal>
+
+      <Reveal delay={240}>
+        <div class="card bg-base-200 border border-white/10">
+          <div class="card-body">
+            <div class="badge badge-accent badge-outline">Qualité</div>
+            <h3 class="card-title mt-2">Solutions durables</h3>
+            <p class="text-white/70">
+              Réparation sérieuse et tests après intervention pour éviter les retours et les surprises.
+            </p>
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  </section>
+
+  <!-- METHODE -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-5">
+        <Reveal>
+          <h2 class="text-3xl md:text-4xl font-bold">Notre méthode</h2>
+        </Reveal>
+        <Reveal delay={100}>
+          <p class="mt-4 text-white/70">
+            Une approche structurée, inspirée des ateliers “haut niveau” : collecte d’infos, diagnostic,
+            validation, puis intervention et tests.
+          </p>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <div class="mt-6 rounded-2xl border border-white/10 bg-base-200 p-5">
+            <div class="text-sm text-white/60">Ce que vous gagnez</div>
+            <ul class="mt-3 space-y-2 text-white/70">
+              <li class="flex gap-2">
+                <span class="text-primary">•</span> Un plan clair avant d’agir
+              </li>
+              <li class="flex gap-2">
+                <span class="text-primary">•</span> Moins d’essais inutiles
+              </li>
+              <li class="flex gap-2">
+                <span class="text-primary">•</span> Une réparation testée et validée
+              </li>
+            </ul>
+          </div>
+        </Reveal>
+      </div>
+
+      <div class="lg:col-span-7">
+        <div class="grid gap-4">
+          <Reveal>
+            <div class="card bg-base-200 border border-white/10">
+              <div class="card-body">
+                <div class="flex items-start gap-4">
+                  <div class="rounded-xl bg-primary/15 border border-primary/30 px-3 py-2 font-semibold">
+                    01
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-lg">Analyse & symptômes</h3>
+                    <p class="text-white/70">
+                      On collecte les infos, l’historique et les symptômes pour orienter le diagnostic.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={120}>
+            <div class="card bg-base-200 border border-white/10">
+              <div class="card-body">
+                <div class="flex items-start gap-4">
+                  <div class="rounded-xl bg-accent/15 border border-accent/30 px-3 py-2 font-semibold">
+                    02
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-lg">Diagnostic & mesures</h3>
+                    <p class="text-white/70">
+                      Lecture défauts, tests, contrôles capteurs/actionneurs, analyse réseaux (CAN), etc.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={240}>
+            <div class="card bg-base-200 border border-white/10">
+              <div class="card-body">
+                <div class="flex items-start gap-4">
+                  <div class="rounded-xl bg-secondary/15 border border-secondary/30 px-3 py-2 font-semibold">
+                    03
+                  </div>
+                  <div>
+                    <h3 class="font-semibold text-lg">Intervention & validation</h3>
+                    <p class="text-white/70">
+                      Réparation / programmation selon besoin, puis tests de validation avant restitution.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ATELIER -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="card bg-base-200 border border-white/10 overflow-hidden">
+      <div class="card-body">
+        <div class="grid lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7">
+            <Reveal>
+              <h2 class="text-3xl md:text-4xl font-bold">L’atelier</h2>
+            </Reveal>
+            <Reveal delay={120}>
+              <p class="mt-4 text-white/70">
+                Un environnement pensé pour travailler proprement : outils adaptés, procédures, et
+                une attention particulière aux détails qui font la différence.
+              </p>
+            </Reveal>
+
+            <Reveal delay={240}>
+              <div class="mt-6 grid sm:grid-cols-2 gap-4">
+                <div class="rounded-2xl border border-white/10 bg-base-300/40 p-4">
+                  <div class="font-semibold">Outillage & contrôle</div>
+                  <div class="text-white/60 text-sm mt-1">
+                    Tests ciblés, vérifications, mesures, validation post-intervention.
+                  </div>
+                </div>
+
+                <div class="rounded-2xl border border-white/10 bg-base-300/40 p-4">
+                  <div class="font-semibold">Propreté & méthode</div>
+                  <div class="text-white/60 text-sm mt-1">
+                    Interventions structurées, traçabilité et retour clair au client.
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+
+          <div class="lg:col-span-5">
+            <Reveal delay={180}>
+              <div class="rounded-3xl border border-white/10 p-6 bg-gradient-to-br from-primary/15 via-accent/10 to-secondary/15">
+                <div class="text-sm text-white/60">Besoin d’un avis ?</div>
+                <div class="mt-2 text-xl font-semibold">Parlons de votre problème</div>
+                <p class="mt-3 text-white/70 text-sm">
+                  Décrivez les symptômes, les codes défauts éventuels et le modèle du véhicule.
+                  On revient vers vous rapidement.
+                </p>
+                <a class="btn btn-primary w-full mt-5" href="/contact">Contacter Autosoftronics</a>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="max-w-6xl mx-auto px-4 pb-20">
+    <div class="rounded-3xl border border-white/10 bg-base-200 p-8 md:p-10">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-bold">
+            Prêt à diagnostiquer, programmer ou réparer ?
+          </h2>
+          <p class="mt-2 text-white/70">
+            Contactez-nous et recevez une réponse rapide.
+          </p>
+        </div>
+        <div class="flex gap-3">
+          <a class="btn btn-primary" href="/contact">Demander un devis</a>
+          <a class="btn btn-ghost border border-white/15" href="/services">Nos services</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

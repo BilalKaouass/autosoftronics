@@ -1,0 +1,255 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  background: hsl(var(--b1));
+  color: hsl(var(--bc));
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* =========================
+   Logos marques — uniformes
+   ========================= */
+
+/* Boîte = même espace pour tous */
+.brand-box{
+  height: 72px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+/* Logo (grille) */
+.brand-logo{
+  width: 110px;        /* ✅ taille fixe */
+  height: 38px;        /* ✅ hauteur fixe */
+  object-fit: contain; /* garde le ratio */
+  opacity: .95;
+  filter: brightness(0) invert(1) contrast(1.2);
+  transition: transform .25s ease, opacity .25s ease, filter .25s ease;
+}
+
+/* Hover premium (UNE SEULE règle) */
+.brand-box:hover .brand-logo{
+  transform: translateY(-1px) scale(1.04);
+  filter: brightness(0) invert(1) contrast(1.25)
+          drop-shadow(0 0 10px rgba(150,50,225,.35));
+}
+
+/* Marquee : boîte fixe pour défilement régulier */
+.brand-box--marquee{
+  height: 62px;
+  width: 180px;
+  display: grid;
+  place-items: center;
+}
+
+/* Logo (marquee) */
+.brand-logo--marquee{
+  width: 110px;
+  height: 32px;
+  object-fit: contain;
+  opacity: .95;
+  filter: brightness(0) invert(1) contrast(1.25);
+}
+
+.brand-logo, .brand-logo--marquee{
+  filter: brightness(0) invert(1) contrast(1.15);
+}
+
+/* GLOW CINÉMA pour la section marques */
+.cinema-glow{
+  background:
+    radial-gradient(900px 420px at 50% 10%, rgba(160,70,255,.22), transparent 62%),
+    radial-gradient(700px 420px at 85% 35%, rgba(60,120,255,.16), transparent 60%),
+    radial-gradient(700px 420px at 15% 40%, rgba(30,40,80,.22), transparent 60%);
+  filter: blur(2px);
+  opacity: .9;
+}
+/* Carte logo premium */
+.brand-card{
+  height: 90px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.02);
+  backdrop-filter: blur(6px);
+  display: grid;
+  place-items: center;
+  transition: all .35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Effet halo subtil */
+.brand-card::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center,
+    rgba(150,50,225,.15),
+    transparent 70%);
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+/* Logo */
+.brand-logo{
+  height: 36px;
+  width: auto;
+  max-width: 140px;
+  object-fit: contain;
+  opacity: .85;
+  transition: all .35s ease;
+}
+
+/* Hover premium */
+.brand-card:hover{
+  border-color: rgba(150,50,225,.4);
+  transform: translateY(-4px);
+  background: rgba(255,255,255,.04);
+}
+
+.brand-card:hover::before{
+  opacity: 1;
+}
+
+.brand-card:hover .brand-logo{
+  opacity: 1;
+  transform: scale(1.08);
+}
+
+.brand-card::after{
+  content:"";
+  position:absolute;
+  inset:-40%;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(255,255,255,.10) 45%,
+    rgba(255,255,255,.18) 50%,
+    rgba(255,255,255,.10) 55%,
+    transparent 100%);
+  transform: translateX(-60%) rotate(12deg);
+  opacity: 0;
+  transition: opacity .35s ease;
+  pointer-events:none;
+}
+
+.brand-card:hover::after{
+  opacity: 1;
+  animation: sweep .8s ease forwards;
+}
+
+@keyframes sweep{
+  to { transform: translateX(60%) rotate(12deg); }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .brand-card:hover::after{ animation: none; }
+}
+html {
+  scrollbar-gutter: stable;
+}
+html {
+  scrollbar-gutter: stable;
+}
+
+/* =========================
+   NAVBAR — CINÉMA PREMIUM
+   ========================= */
+
+.navbar-cinema{
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: linear-gradient(to bottom, rgba(5,8,14,.78), rgba(5,8,14,.38));
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  box-shadow:
+    0 18px 60px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.06);
+
+  isolation: isolate; /* important pour gérer les couches glow proprement */
+}
+
+.navbar-cinema::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  pointer-events:none;
+  z-index: -1;
+
+  background:
+    radial-gradient(900px 220px at 50% -40px, rgba(160,70,255,.20), transparent 65%),
+    radial-gradient(700px 200px at 85% -30px, rgba(60,120,255,.12), transparent 60%);
+  opacity: .95;
+}
+
+.navbar-cinema a{
+  transition: opacity .18s ease, transform .18s ease;
+}
+
+.navbar-cinema .menu a:hover{
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+/* Dropdown premium (desktop details + mobile dropdown) */
+.navbar-dropdown{
+  background: rgba(12,14,20,.85) !important;
+  border: 1px solid rgba(255,255,255,.10) !important;
+  box-shadow:
+    0 22px 60px rgba(0,0,0,.55),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* Optionnel: focus plus clean */
+.navbar-cinema .btn:focus-visible,
+.navbar-cinema a:focus-visible{
+  outline: 2px solid rgba(160,70,255,.55);
+  outline-offset: 2px;
+  border-radius: 10px;
+}
+
+/* Micro glow "phares" sur hover */
+.headlights{
+  opacity: .25;
+  transform: scale(1);
+  filter: blur(10px);
+  transition: opacity .35s ease, filter .35s ease, transform .35s ease;
+
+  /* 3 spots (Audi / BMW / Mercedes) – à ajuster */
+  background:
+    radial-gradient(220px 140px at 22% 55%, rgba(120,200,255,.35), transparent 60%),
+    radial-gradient(220px 140px at 50% 55%, rgba(170,80,255,.28), transparent 60%),
+    radial-gradient(220px 140px at 78% 55%, rgba(120,200,255,.35), transparent 60%);
+  mix-blend-mode: screen;
+}
+
+/* Hover sur toute la section */
+.group:hover .headlights{
+  opacity: .9;
+  filter: blur(6px);
+  transform: scale(1.01);
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce){
+  .headlights{ transition: none; }
+}

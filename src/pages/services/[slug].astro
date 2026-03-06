@@ -1,0 +1,353 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ScrollReveal from "../../components/ScrollReveal.astro";
+import { services } from "../../data/services";
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug } }));
+}
+
+const { slug } = Astro.params;
+const service = services.find((s) => s.slug === slug);
+
+if (!service) throw new Error(`Service introuvable: ${slug}`);
+
+/** 🎨 Overlay par service */
+const tone = {
+  diagnostic: { a: "59,130,246", b: "139,92,246" },
+  programmation: { a: "139,92,246", b: "217,70,239" },
+  reparation: { a: "245,158,11", b: "139,92,246" },
+} as const;
+
+const t = tone[service.slug] ?? { a: "139,92,246", b: "59,130,246" };
+
+/** ✅ Badge confiance par service */
+const trust = {
+  diagnostic: "+250 véhicules diagnostiqués",
+  programmation: "Procédures sécurisées & sauvegarde ECU",
+  reparation: "Réparations durables, tests avant/après",
+} as const;
+
+const trustText = trust[service.slug] ?? "Atelier spécialisé – service premium";
+
+const bgUrl = `/assets/services/${service.slug}.jpg`;
+---
+
+<BaseLayout
+  title={service.seo?.title ?? `${service.name} | Autosoftronics`}
+  description={service.seo?.description ?? service.short}
+>
+  <section
+    class="svc relative overflow-hidden pt-24 pb-24"
+    style={`--tone-a:${t.a}; --tone-b:${t.b}; --service-bg:url('${bgUrl}');`}
+  >
+    {/* Background via pseudo-element */}
+    <div class="svc-bg" aria-hidden="true"></div>
+
+    {/* Overlays */}
+    <div class="pointer-events-none absolute inset-0 z-0 bg-gradient-to-b from-black/50 via-black/20 to-base-100"></div>
+    <div
+      class="pointer-events-none absolute inset-0 z-0"
+      style={`background: radial-gradient(circle at 20% 15%, rgba(var(--tone-a), .22), transparent 55%);`}
+    ></div>
+    <div
+      class="pointer-events-none absolute inset-0 z-0"
+      style={`background: radial-gradient(circle at 80% 10%, rgba(var(--tone-b), .16), transparent 55%);`}
+    ></div>
+    <div class="pointer-events-none absolute inset-0 z-0 opacity-[0.04] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_1px)] [background-size:22px_22px]"></div>
+
+    <div class="relative z-10 max-w-6xl mx-auto px-4">
+      {/* HERO */}
+      <ScrollReveal>
+        <div class="max-w-3xl">
+          <a href="/services" class="text-white/60 hover:text-white transition">
+            ← Retour aux services
+          </a>
+
+          <div class="mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
+            <span class="h-2 w-2 rounded-full bg-success"></span>
+            {service.name}
+          </div>
+
+          <h1 class="mt-6 text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+            {service.hero?.title ?? service.name}
+          </h1>
+
+          <p class="mt-4 text-white/70 leading-relaxed max-w-2xl">
+            {service.hero?.subtitle ?? service.short}
+          </p>
+
+          {service.highlights?.length ? (
+            <div class="mt-7 flex flex-wrap gap-2">
+              {service.highlights.map((h) => (
+                <span class="badge badge-outline border-white/20 text-white/70">
+                  <span class="text-white/50 mr-2">{h.label}:</span> {h.value}
+                </span>
+              ))}
+            </div>
+          ) : null}
+
+          <div class="mt-10 flex gap-3 flex-wrap">
+            <a href="/contact" class="btn btn-primary btn-lg shadow-lg shadow-primary/25">
+              Demander un devis
+            </a>
+            <a
+              href="/contact"
+              class="btn btn-outline btn-lg border-white/25 text-white hover:bg-white/10 hover:border-primary transition"
+            >
+              Poser une question
+            </a>
+          </div>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <div class="trust-pill text-sm text-white/75">
+              {trustText}
+            </div>
+          </div>
+        </div>
+      </ScrollReveal>
+
+      {/* CONTENT GRID */}
+      <div class="mt-16 grid lg:grid-cols-12 gap-8 items-start">
+        {/* LEFT */}
+        <ScrollReveal delay={120} class="min-w-0 lg:col-span-7">
+          <div class="min-w-0 w-full space-y-6">
+            <div class="glass-card relative rounded-3xl p-8 overflow-hidden min-w-0 w-full">
+              <div class="sheen pointer-events-none absolute inset-0 rounded-3xl"></div>
+
+              <div class="relative min-w-0">
+                <div class="flex items-start justify-between gap-6 min-w-0">
+                  <div class="min-w-0">
+                    <h2 class="text-2xl font-bold">Ce que comprend la prestation</h2>
+                    <p class="mt-2 text-white/60 text-sm">
+                      Checklist claire — pour savoir exactement ce qui est inclus.
+                    </p>
+                  </div>
+
+                  <div class="hidden sm:flex items-center gap-2 text-white/60 text-sm shrink-0">
+                    <span class="h-2 w-2 rounded-full bg-primary/80"></span>
+                    Méthode contrôlée
+                  </div>
+                </div>
+
+                <ul class="mt-6 grid gap-3 sm:grid-cols-2 text-white/70 min-w-0">
+                  {service.includes.map((line) => (
+                    <li class="flex gap-3 min-w-0">
+                      <span class="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0"></span>
+                      <span class="leading-relaxed min-w-0">{line}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div class="glass-card relative rounded-3xl p-8 overflow-hidden min-w-0 w-full">
+              <div class="sheen pointer-events-none absolute inset-0 rounded-3xl"></div>
+
+              <div class="relative min-w-0 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
+                <div class="min-w-0">
+                  <h3 class="text-xl font-bold">Besoin d’un avis rapide ?</h3>
+                  <p class="mt-2 text-white/70">
+                    Expliquez votre problème, modèle et année — on confirme la compatibilité et la meilleure option.
+                  </p>
+                </div>
+                <div class="shrink-0">
+                  <a
+                    href="/contact"
+                    class="btn btn-outline btn-lg border-white/25 text-white hover:bg-white/10 hover:border-primary transition"
+                  >
+                    Vérifier la compatibilité
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        {/* RIGHT */}
+        <ScrollReveal delay={180} class="min-w-0 lg:col-span-5">
+          <aside class="min-w-0 w-full">
+            <div class="glass-card relative rounded-3xl p-8 overflow-hidden min-w-0 w-full">
+              <div class="sheen pointer-events-none absolute inset-0 rounded-3xl"></div>
+
+              <div class="relative min-w-0">
+                <div class="text-white/70 text-sm">Notre méthode</div>
+                <h2 class="mt-1 text-2xl font-bold">Process en 3 étapes</h2>
+
+                <ol class="mt-8 space-y-7">
+                  {service.process.map((p, i) => (
+                    <li class="flex gap-4 min-w-0">
+                      <div class="flex flex-col items-center shrink-0">
+                        <div class="step-pill">
+                          <span class="step-dot"></span>
+                          <span>{p.step}</span>
+                        </div>
+
+                        {i !== service.process.length - 1 ? (
+                          <div class="step-line"></div>
+                        ) : null}
+                      </div>
+
+                      <div class="min-w-0 pt-[2px]">
+                        <div class="text-lg font-semibold leading-snug">{p.title}</div>
+                        <p class="mt-2 text-sm text-white/65 leading-relaxed min-w-0">
+                          {p.text}
+                        </p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+
+                <div class="mt-10 rounded-2xl border border-white/10 bg-black/20 p-4">
+                  <div class="text-sm text-white/70">
+                    <span class="text-white font-semibold">Conseil :</span> envoyez une photo du tableau de bord / défaut si vous en avez.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </aside>
+        </ScrollReveal>
+      </div>
+    </div>
+
+    <style>
+      .svc, .svc * { min-width: 0; }
+
+      /* ✅ Image en vrai background CSS */
+      .svc-bg{
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background-image: var(--service-bg);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: .42;
+        filter: brightness(.92) contrast(1.12) saturate(1.10);
+        transform: scale(1.04);
+      }
+
+      /* Glass card */
+      .glass-card{
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(18,18,24,.35);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        box-shadow:
+          0 0 0 1px rgba(255,255,255,.04) inset,
+          0 30px 60px rgba(0,0,0,.35);
+        transition: transform .35s ease, border-color .35s ease, background .35s ease;
+      }
+      .glass-card:hover{
+        border-color: rgba(255,255,255,.18);
+        background: rgba(18,18,24,.44);
+        transform: translateY(-2px);
+      }
+
+      /* Sweep */
+      .sheen::before{
+        content:"";
+        position:absolute;
+        inset:-45%;
+        background: linear-gradient(
+          115deg,
+          transparent 46%,
+          rgba(255,255,255,.08) 50%,
+          transparent 54%
+        );
+        transform: translateX(-26%) rotate(8deg);
+        opacity: 0;
+        transition: transform .7s ease, opacity .7s ease;
+      }
+      .glass-card:hover .sheen::before{
+        opacity: 1;
+        transform: translateX(26%) rotate(8deg);
+      }
+
+      /* Timeline */
+      .step-pill{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        height: 32px;
+        padding: 0 12px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.05);
+        color: rgba(255,255,255,.85);
+        font-size: 12px;
+        line-height: 1;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset;
+      }
+
+      .step-dot{
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: rgba(var(--tone-a), .95);
+        box-shadow: 0 0 0 4px rgba(var(--tone-a), .14), 0 0 18px rgba(var(--tone-a), .30);
+        flex: 0 0 auto;
+      }
+
+      .step-line{
+        width: 2px;
+        flex: 1 1 auto;
+        margin-top: 10px;
+        border-radius: 999px;
+        background: linear-gradient(
+          to bottom,
+          rgba(var(--tone-a), .70),
+          rgba(255,255,255,.10),
+          rgba(255,255,255,0)
+        );
+      }
+
+      /* Trust badge animé */
+      .trust-pill{
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 10px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.05);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        box-shadow: 0 0 0 1px rgba(255,255,255,.04) inset;
+        position: relative;
+        overflow: hidden;
+      }
+      .trust-pill::before{
+        content:"";
+        width: 7px;
+        height: 7px;
+        border-radius: 999px;
+        background: rgba(34,197,94,.95);
+        box-shadow: 0 0 0 4px rgba(34,197,94,.12);
+        flex: 0 0 auto;
+      }
+      .trust-pill::after{
+        content:"";
+        position:absolute;
+        inset:-40%;
+        background: radial-gradient(circle, rgba(255,255,255,.10), transparent 55%);
+        opacity:.0;
+        animation: trustGlow 2.8s ease-in-out infinite;
+      }
+
+      @keyframes trustGlow{
+        0%,100%{ opacity:.0; transform: translate3d(-10%,0,0); }
+        50%{ opacity:.55; transform: translate3d(10%,0,0); }
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        .glass-card, .sheen::before{ transition:none !important; }
+        .glass-card:hover{ transform:none; }
+        .sheen::before{ opacity:0 !important; }
+      }
+    </style>
+  </section>
+</BaseLayout>

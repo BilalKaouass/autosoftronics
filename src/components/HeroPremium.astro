@@ -1,0 +1,76 @@
+<section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden">
+  <!-- BG WRAPPER (no negative z-index) -->
+  <div class="absolute inset-0 z-0">
+    <!-- IMAGE -->
+    <img
+      src="/assets/hero/hero.png"
+      alt="Diagnostic automobile"
+      class="w-full h-full object-cover hero-bg"
+      loading="eager"
+    />
+
+    <!-- OVERLAY (dark for readability) -->
+    <div class="absolute inset-0 bg-black/55"></div>
+
+    <!-- GRADIENT (premium fade) -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/35 via-black/45 to-base-100"></div>
+
+    <!-- LIGHT EFFECT -->
+    <div class="absolute inset-0">
+      <div
+        class="absolute top-1/3 left-1/2 -translate-x-1/2 w-[650px] h-[650px]
+               bg-gradient-to-r from-primary/25 via-accent/20 to-secondary/25
+               rounded-full blur-3xl opacity-70"
+        style="animation: pulseSoft 4.5s ease-in-out infinite;"
+      ></div>
+    </div>
+  </div>
+
+  <!-- CONTENT (above background) -->
+  <div class="relative z-10 max-w-6xl px-6">
+  <div class="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
+    <span class="h-2 w-2 rounded-full bg-success animate-pulse"></span>
+    Spécialiste en électromécanique automobile
+  </div>
+
+  <h1 class="mt-10 text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] text-white tracking-tight">
+    Diagnostic & Programmation
+  </h1>
+
+  <h2 class="mt-4 text-4xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent">
+    Haute Précision
+  </h2>
+
+  <p class="mt-8 text-lg md:text-xl text-white/80 max-w-3xl mx-auto leading-relaxed">
+    Autosoftronics vous accompagne pour le diagnostic électronique,
+    la programmation ECU et la réparation automobile avec une méthode
+    rigoureuse et fiable.
+  </p>
+
+  <div class="mt-12 flex flex-col sm:flex-row justify-center gap-6">
+    <a href="/contact" class="btn btn-primary btn-lg shadow-xl shadow-primary/30">
+      Demander un devis
+    </a>
+    <a href="/services" class="btn btn-outline btn-lg border-white/30 text-white hover:bg-white/10">
+      Découvrir nos services
+    </a>
+  </div>
+</div>
+
+  <style>
+    .hero-bg {
+      transform: scale(1.08);
+      animation: slowZoom 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes slowZoom {
+      from { transform: scale(1.05); }
+      to { transform: scale(1.15); }
+    }
+
+    @keyframes pulseSoft {
+      0%, 100% { transform: translateX(-50%) scale(1); opacity: .65; }
+      50% { transform: translateX(-50%) scale(1.05); opacity: .85; }
+    }
+  </style>
+</section>
