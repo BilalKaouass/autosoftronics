@@ -1,0 +1,360 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Reveal from "../components/Reveal.astro";
+
+const title = "FAQ | Autosoftronics";
+const description =
+  "Questions fréquentes sur le diagnostic électronique, la programmation ECU, la réparation électronique automobile, les délais, la compatibilité et les demandes de devis.";
+
+const faqItems = [
+  {
+    q: "Combien coûte un diagnostic électronique automobile ?",
+    a: "Le prix dépend du véhicule, des symptômes et du niveau de recherche nécessaire. Un diagnostic simple n’implique pas le même temps qu’une panne électronique complexe. Le plus simple est de nous contacter avec le modèle, l’année et les symptômes pour recevoir une estimation claire."
+  },
+  {
+    q: "Combien de temps prend un diagnostic électronique ?",
+    a: "Cela dépend de la complexité du problème. Certains diagnostics sont rapides, d’autres demandent des contrôles plus poussés, des mesures ou des vérifications réseau. Notre objectif est d’identifier la cause réelle, pas seulement d’effacer un défaut."
+  },
+  {
+    q: "Quels types de véhicules prenez-vous en charge ?",
+    a: "Nous intervenons sur de nombreuses marques et sur différents systèmes électroniques embarqués, selon compatibilité. Si vous avez un doute, indiquez-nous la marque, le modèle, l’année et la motorisation pour vérifier rapidement."
+  },
+  {
+    q: "Pouvez-vous intervenir sur un calculateur moteur (ECU) ?",
+    a: "Oui, selon le cas, nous pouvons diagnostiquer, programmer, adapter ou réparer certains calculateurs et modules électroniques. Chaque situation dépend du véhicule, du type de boîtier et de l’état réel de l’équipement."
+  },
+  {
+    q: "La programmation ECU est-elle sécurisée ?",
+    a: "Oui, lorsqu’elle est réalisée avec méthode et après vérification de compatibilité. Nous privilégions les procédures maîtrisées, les sauvegardes lorsque c’est nécessaire et une validation après intervention."
+  },
+  {
+    q: "Peut-on réparer un calculateur ou faut-il toujours le remplacer ?",
+    a: "Dans certains cas, une réparation électronique est possible. Dans d’autres, un remplacement ou une autre solution est plus adaptée. Cela dépend du type de panne, des composants touchés et de la viabilité de la réparation."
+  },
+  {
+    q: "Faites-vous aussi le codage et l’adaptation de modules ?",
+    a: "Oui, nous réalisons selon compatibilité des opérations de codage, d’adaptation, de configuration ou de programmation sur différents modules électroniques."
+  },
+  {
+    q: "Que faut-il envoyer pour obtenir un avis rapide ?",
+    a: "Idéalement : la marque, le modèle, l’année, la motorisation, les symptômes observés, les voyants affichés et, si possible, une photo du tableau de bord ou des codes défauts déjà lus."
+  },
+  {
+    q: "Travaillez-vous sur rendez-vous ?",
+    a: "Le plus pratique est de nous contacter avant de vous déplacer, afin de vérifier la compatibilité de la demande, estimer le besoin et vous orienter correctement."
+  },
+  {
+    q: "Comment savoir si mon véhicule est compatible avec votre intervention ?",
+    a: "Il suffit de nous envoyer les informations de votre véhicule : marque, modèle, année, motorisation et problème rencontré. Nous vous confirmons rapidement si l’intervention est possible."
+  },
+  {
+    q: "Faites-vous uniquement du diagnostic ou aussi de la réparation ?",
+    a: "Nous intervenons selon les besoins en diagnostic électronique, programmation, adaptation, codage et réparation électronique automobile."
+  },
+  {
+    q: "Comment demander un devis ou une estimation ?",
+    a: "Vous pouvez nous contacter via la page contact avec les informations du véhicule et les symptômes. Plus votre description est précise, plus notre retour sera pertinent."
+  }
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((item) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
+---
+
+<BaseLayout title={title} description={description}>
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+  <!-- HERO -->
+  <section class="relative overflow-hidden pt-24 pb-20">
+    <div class="pointer-events-none absolute inset-0 -z-10">
+      <div class="absolute -top-24 left-1/2 h-72 w-[56rem] -translate-x-1/2 rounded-full blur-3xl opacity-25 bg-gradient-to-r from-primary via-accent to-secondary"></div>
+      <div class="absolute -bottom-32 left-1/2 h-72 w-[56rem] -translate-x-1/2 rounded-full blur-3xl opacity-15 bg-gradient-to-r from-secondary via-primary to-accent"></div>
+      <div class="absolute inset-0 opacity-[0.03] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_1px)] [background-size:22px_22px]"></div>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4">
+      <Reveal>
+        <div class="max-w-3xl">
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
+            <span class="h-2 w-2 rounded-full bg-success"></span>
+            Questions fréquentes
+          </div>
+
+          <h1 class="mt-6 text-4xl md:text-6xl font-bold tracking-tight leading-tight">
+            FAQ
+          </h1>
+
+          <p class="mt-5 text-white/70 text-lg leading-relaxed max-w-2xl">
+            Tout ce qu’il faut savoir sur le diagnostic électronique, la programmation ECU,
+            la réparation électronique automobile, les délais, la compatibilité et les demandes de devis.
+          </p>
+
+          <div class="mt-8 flex flex-wrap gap-3">
+            <a href="/contact" class="btn btn-primary btn-lg shadow-lg shadow-primary/25">
+              Poser une question
+            </a>
+            <a href="/services" class="btn btn-ghost border border-white/15">
+              Voir nos services
+            </a>
+          </div>
+        </div>
+      </Reveal>
+    </div>
+  </section>
+
+  <!-- INTRO SEO -->
+  <section class="max-w-6xl mx-auto px-4 py-6">
+    <Reveal>
+      <div class="glass-card rounded-3xl p-6 md:p-8">
+        <h2 class="text-2xl md:text-3xl font-bold">Informations utiles avant de nous contacter</h2>
+        <p class="mt-4 text-white/70 leading-relaxed max-w-4xl">
+          Cette FAQ a été pensée pour répondre aux questions les plus courantes sur nos prestations :
+          diagnostic électronique automobile, programmation de calculateurs, codage de modules,
+          recherche de panne et réparation électronique. Si vous ne trouvez pas votre réponse ici,
+          vous pouvez nous envoyer directement les informations de votre véhicule via la page contact.
+        </p>
+      </div>
+    </Reveal>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <div class="grid lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-4">
+        <Reveal>
+          <div class="sticky top-24 glass-card rounded-3xl p-6">
+            <h2 class="text-2xl font-bold">Besoin d’un avis rapide ?</h2>
+            <p class="mt-3 text-white/70 leading-relaxed">
+              Envoyez la marque, le modèle, l’année, la motorisation et les symptômes observés.
+            </p>
+
+            <ul class="mt-5 space-y-3 text-white/70">
+              <li class="flex gap-3">
+                <span class="service-bullet mt-2 shrink-0"></span>
+                <span>Diagnostic électronique</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="service-bullet mt-2 shrink-0"></span>
+                <span>Programmation / codage</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="service-bullet mt-2 shrink-0"></span>
+                <span>Réparation électronique</span>
+              </li>
+            </ul>
+
+            <div class="mt-6">
+              <a href="/contact" class="btn btn-primary w-full shadow-lg shadow-primary/25">
+                Contacter Autosoftronics
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+
+      <div class="lg:col-span-8">
+        <div class="space-y-4">
+          {faqItems.map((item, index) => (
+            <Reveal delay={index * 40}>
+              <details class="faq-item group">
+                <summary class="faq-summary">
+                  <span class="faq-number">{String(index + 1).padStart(2, "0")}</span>
+                  <span class="faq-question">{item.q}</span>
+                  <span class="faq-icon">+</span>
+                </summary>
+
+                <div class="faq-answer">
+                  <p>{item.a}</p>
+                </div>
+              </details>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIENS SEO INTERNES -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <Reveal>
+      <div class="glass-card rounded-3xl p-8 md:p-10">
+        <h2 class="text-2xl md:text-3xl font-bold">Services liés</h2>
+        <p class="mt-3 text-white/70 max-w-3xl leading-relaxed">
+          Selon votre besoin, vous pouvez aussi consulter nos pages de service détaillées.
+        </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="/services/diagnostic" class="btn btn-outline border-white/20 text-white hover:bg-white/10">
+            Diagnostic électronique
+          </a>
+          <a href="/services/programmation" class="btn btn-outline border-white/20 text-white hover:bg-white/10">
+            Programmation ECU
+          </a>
+          <a href="/services/reparation" class="btn btn-outline border-white/20 text-white hover:bg-white/10">
+            Réparation électronique
+          </a>
+        </div>
+      </div>
+    </Reveal>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="max-w-6xl mx-auto px-4 pb-24">
+    <Reveal>
+      <div class="rounded-[2rem] border border-white/10 bg-base-200/60 backdrop-blur-xl p-8 md:p-10">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+          <div>
+            <h2 class="text-2xl md:text-3xl font-bold">
+              Vous ne trouvez pas votre réponse ?
+            </h2>
+            <p class="mt-2 text-white/70">
+              Expliquez-nous votre problème, votre véhicule et vos symptômes.
+            </p>
+          </div>
+
+          <div class="flex gap-3 flex-wrap">
+            <a class="btn btn-primary shadow-lg shadow-primary/25" href="/contact">
+              Demander un avis
+            </a>
+            <a class="btn btn-ghost border border-white/15" href="/services">
+              Nos services
+            </a>
+          </div>
+        </div>
+      </div>
+    </Reveal>
+  </section>
+
+  <style>
+    .glass-card{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(18,18,24,.35);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      box-shadow:
+        0 0 0 1px rgba(255,255,255,.04) inset,
+        0 24px 50px rgba(0,0,0,.28);
+    }
+
+    .service-bullet{
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(139,92,246,.95);
+      box-shadow: 0 0 0 4px rgba(139,92,246,.12);
+      display: inline-block;
+    }
+
+    .faq-item{
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(18,18,24,.28);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      transition: border-color .25s ease, background .25s ease, transform .25s ease;
+    }
+
+    .faq-item:hover{
+      border-color: rgba(255,255,255,.18);
+      background: rgba(18,18,24,.36);
+      transform: translateY(-1px);
+    }
+
+    .faq-summary{
+      list-style: none;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 16px;
+      align-items: center;
+      padding: 22px 24px;
+      cursor: pointer;
+    }
+
+    .faq-summary::-webkit-details-marker{
+      display: none;
+    }
+
+    .faq-number{
+      font-size: 12px;
+      color: rgba(255,255,255,.45);
+      min-width: 26px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .faq-question{
+      font-size: 17px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: rgba(255,255,255,.92);
+    }
+
+    .faq-icon{
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.75);
+      transition: transform .25s ease, background .25s ease, border-color .25s ease;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    .faq-item[open] .faq-icon{
+      transform: rotate(45deg);
+      background: rgba(255,255,255,.08);
+      border-color: rgba(255,255,255,.18);
+    }
+
+    .faq-answer{
+      padding: 0 24px 22px 66px;
+      color: rgba(255,255,255,.68);
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    @media (max-width: 768px){
+      .faq-summary{
+        padding: 18px 18px;
+        gap: 12px;
+      }
+
+      .faq-question{
+        font-size: 16px;
+      }
+
+      .faq-answer{
+        padding: 0 18px 18px 56px;
+        font-size: 14px;
+        line-height: 1.7;
+      }
+      .faq-link-card{
+  display:block;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  border-radius:1.5rem;
+  padding:1.25rem;
+  transition: transform .25s ease, border-color .25s ease, background .25s ease;
+}
+
+.faq-link-card:hover{
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,.18);
+  background: rgba(255,255,255,.06);
+}
+    }
+  </style>
+</BaseLayout>

@@ -327,57 +327,84 @@ import ScrollReveal from "../components/ScrollReveal.astro";
   ></div>
 
   <!-- CONTENU (au-dessus de tout) -->
-  <div class="relative z-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <!-- COLONNE TEXTE -->
-        <div>
-          <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
-            <span class="h-2 w-2 rounded-full bg-success"></span>
-            Pourquoi nous
-          </div>
-
-          <h2 class="mt-8 text-4xl md:text-5xl font-bold leading-tight">
-            Une méthode <span class="text-primary">rigoureuse</span>, pas de l’improvisation.
-          </h2>
-
-          <p class="mt-6 text-white/70 leading-relaxed max-w-lg">
-            Chaque intervention suit un protocole clair : analyse précise, sécurisation des données,
-            exécution maîtrisée et validation complète. Nous privilégions la fiabilité long terme.
-          </p>
-
-          <div class="mt-10">
-            <a href="/contact" class="btn btn-primary btn-lg shadow-lg shadow-primary/25">
-              Discuter de votre véhicule
-            </a>
-          </div>
+<div class="relative z-20">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-20 items-center">
+      <!-- COLONNE TEXTE -->
+      <div>
+        <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
+          <span class="h-2 w-2 rounded-full bg-success"></span>
+          Pourquoi nous
         </div>
 
-        <!-- COLONNE MÉTHODE -->
-        <div class="relative">
-          <div class="absolute left-4 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-white/10 to-transparent"></div>
+        <h2 class="mt-8 text-4xl md:text-5xl font-bold leading-tight">
+          Une méthode <span class="text-primary">rigoureuse</span>, pas de l’improvisation.
+        </h2>
 
-          <div class="space-y-10 pl-12">
-            <div class="why-step">
-              <div class="text-primary font-semibold tracking-wide">01</div>
-              <div class="text-xl font-semibold mt-2">Diagnostic mesuré</div>
-              <p class="mt-2 text-white/60 text-sm leading-relaxed">
+        <p class="mt-6 text-white/70 leading-relaxed max-w-xl text-lg">
+          Chaque intervention suit un protocole clair : analyse précise, sécurisation des données,
+          exécution maîtrisée et validation complète. Nous privilégions la fiabilité long terme.
+        </p>
+
+        <div class="mt-10">
+          <a href="/contact" class="btn btn-primary btn-lg shadow-lg shadow-primary/25">
+            Discuter de votre véhicule
+          </a>
+        </div>
+
+        <div class="mt-5 text-sm text-white/50">
+          Diagnostic précis • Procédure sécurisée • Validation finale
+        </div>
+      </div>
+
+      <!-- COLONNE MÉTHODE -->
+      <div>
+        <div class="space-y-12">
+          <div class="why-step-premium">
+            <div class="why-step-premium__rail">
+              <span class="why-step-premium__dot"></span>
+              <span class="why-step-premium__line"></span>
+            </div>
+
+            <div class="why-step-premium__content">
+              <div class="why-step-premium__top">
+                <span class="why-step-premium__num">01</span>
+                <h3 class="why-step-premium__title">Diagnostic mesuré</h3>
+              </div>
+              <p class="why-step-premium__text">
                 Lecture défauts, contrôles ciblés, analyse capteurs et réseau CAN. Cause réelle, pas le symptôme.
               </p>
             </div>
+          </div>
 
-            <div class="why-step">
-              <div class="text-primary font-semibold tracking-wide">02</div>
-              <div class="text-xl font-semibold mt-2">Intervention sécurisée</div>
-              <p class="mt-2 text-white/60 text-sm leading-relaxed">
+          <div class="why-step-premium">
+            <div class="why-step-premium__rail">
+              <span class="why-step-premium__dot"></span>
+              <span class="why-step-premium__line"></span>
+            </div>
+
+            <div class="why-step-premium__content">
+              <div class="why-step-premium__top">
+                <span class="why-step-premium__num">02</span>
+                <h3 class="why-step-premium__title">Intervention sécurisée</h3>
+              </div>
+              <p class="why-step-premium__text">
                 Sauvegarde ECU avant toute écriture. Procédure maîtrisée, environnement contrôlé.
               </p>
             </div>
+          </div>
 
-            <div class="why-step">
-              <div class="text-primary font-semibold tracking-wide">03</div>
-              <div class="text-xl font-semibold mt-2">Validation & restitution</div>
-              <p class="mt-2 text-white/60 text-sm leading-relaxed">
+          <div class="why-step-premium">
+            <div class="why-step-premium__rail">
+              <span class="why-step-premium__dot"></span>
+            </div>
+
+            <div class="why-step-premium__content">
+              <div class="why-step-premium__top">
+                <span class="why-step-premium__num">03</span>
+                <h3 class="why-step-premium__title">Validation & restitution</h3>
+              </div>
+              <p class="why-step-premium__text">
                 Tests avant / après. Explication claire + recommandations adaptées.
               </p>
             </div>
@@ -385,20 +412,170 @@ import ScrollReveal from "../components/ScrollReveal.astro";
         </div>
       </div>
     </div>
+  </div>
 
-    <style>
-      .why-step{ position: relative; padding: 4px 0; }
-      .why-step::before{
-        content:"";
-        position:absolute;
-        left:-34px;
-        top:10px;
-        width:10px; height:10px;
-        border-radius:999px;
-        background: rgba(139,92,246,.95);
-        box-shadow: 0 0 0 6px rgba(139,92,246,.16);
+  <style>
+    .why-step-premium::before,
+    .why-step-premium::after{
+      content: none !important;
+      display: none !important;
+    }
+
+    .why-step-premium{
+      display: flex;
+      gap: 24px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-radius: 20px;
+      transition: transform .28s ease, background .28s ease;
+    }
+
+    .why-step-premium:hover{
+      transform: translateX(2px);
+      background: linear-gradient(
+        90deg,
+        rgba(255,255,255,.03),
+        rgba(255,255,255,0)
+      );
+    }
+
+    .why-step-premium__rail{
+      width: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex: 0 0 28px;
+      padding-top: 10px;
+    }
+
+    .why-step-premium__dot{
+      width: 11px;
+      height: 11px;
+      border-radius: 9999px;
+      background: rgba(139,92,246,.95);
+      box-shadow:
+        0 0 0 8px rgba(139,92,246,.10),
+        0 0 16px rgba(139,92,246,.22);
+      flex: 0 0 auto;
+      transition: transform .28s ease, box-shadow .28s ease, background .28s ease;
+    }
+
+    .why-step-premium:hover .why-step-premium__dot{
+      transform: scale(1.06);
+      box-shadow:
+        0 0 0 10px rgba(139,92,246,.12),
+        0 0 22px rgba(139,92,246,.30);
+    }
+
+    .why-step-premium__line{
+      width: 1px;
+      flex: 1 1 auto;
+      margin-top: 14px;
+      min-height: 82px;
+      background: linear-gradient(
+        to bottom,
+        rgba(139,92,246,.42),
+        rgba(255,255,255,.08),
+        rgba(255,255,255,0)
+      );
+      opacity: .9;
+      transition: opacity .28s ease;
+    }
+
+    .why-step-premium:hover .why-step-premium__line{
+      opacity: 1;
+    }
+
+    .why-step-premium__content{
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+
+    .why-step-premium__top{
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .why-step-premium__num{
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 700;
+      color: rgba(139,92,246,.95);
+      letter-spacing: .02em;
+      min-width: 54px;
+      transition: color .28s ease, transform .28s ease;
+    }
+
+    .why-step-premium:hover .why-step-premium__num{
+      transform: translateX(1px);
+    }
+
+    .why-step-premium__title{
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: white;
+      transition: color .28s ease;
+    }
+
+    .why-step-premium:hover .why-step-premium__title{
+      color: rgba(255,255,255,.98);
+    }
+
+    .why-step-premium__text{
+      margin-top: 14px;
+      color: rgba(255,255,255,.66);
+      line-height: 1.85;
+      font-size: 15px;
+      max-width: 32rem;
+    }
+
+    @media (max-width: 768px){
+      .why-step-premium{
+        gap: 18px;
+        padding: 6px 0;
       }
-    </style>
+
+      .why-step-premium__rail{
+        width: 24px;
+        flex: 0 0 24px;
+      }
+
+      .why-step-premium__num{
+        font-size: 24px;
+        min-width: 40px;
+      }
+
+      .why-step-premium__title{
+        font-size: 19px;
+      }
+
+      .why-step-premium__text{
+        font-size: 14px;
+        line-height: 1.7;
+      }
+
+      .why-step-premium__line{
+        min-height: 70px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .why-step-premium,
+      .why-step-premium__dot,
+      .why-step-premium__line,
+      .why-step-premium__num,
+      .why-step-premium__title{
+        transition: none !important;
+      }
+
+      .why-step-premium:hover{
+        transform: none;
+      }
+    }
+  </style>
   </div>
 </section>
 
@@ -442,8 +619,8 @@ import ScrollReveal from "../components/ScrollReveal.astro";
     </ScrollReveal>
 
     <ScrollReveal delay={120}>
-      <div class="relative mt-14">
-        {/* FLÈCHES */}
+      <div class="reviews-shell mt-14">
+        {/* FLÈCHES EXTÉRIEURES */}
         <button
           type="button"
           class="reviews-arrow reviews-arrow--left"
@@ -453,6 +630,67 @@ import ScrollReveal from "../components/ScrollReveal.astro";
           ←
         </button>
 
+        <div class="reviews-stage">
+          {/* Fade edges */}
+          <div class="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-base-100/95 to-transparent z-10"></div>
+          <div class="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-base-100/95 to-transparent z-10"></div>
+
+          {/* TRACK */}
+          <div
+            class="reviews-carousel"
+            data-reviews-track
+            aria-label="Avis Google"
+          >
+            {[
+              {
+                name: "Mounir B.",
+                text: "J’ai été refaire une duplication de clé. Très satisfait et par la même occasion j’ai fait un stage 1 de ma Peugeot 308… Je recommande les yeux fermés !",
+              },
+              {
+                name: "Gor A.",
+                text: "Problème de calculateur sur ma BMW 330e, réglé en une seule après-midi. Travail très professionnel, rapide et soigné… Je recommande vivement !",
+              },
+              {
+                name: "Firas B.",
+                text: "Intervention sur ma BMW E46. Correction électronique du pot catalytique. Service compétent avec un prix raisonnable et un délai compétitif.",
+              },
+              {
+                name: "Jacques P.",
+                text: "Problème AdBlue sur mon Discovery + augmentation puissance… Professionnalisme rare en électronique automobile. Je recommande à 1000%.",
+              },
+              {
+                name: "Yassine A.",
+                text: "Top du top les deux frères ! RSQ3 stage 2… Réparation boîtier CASS… Ils maîtrisent beaucoup leur domaine. Merci encore. Je recommande.",
+              },
+              {
+                name: "Jose C.",
+                text: "Très belle expérience chez Auto Softronics. Correction ACC et problème de boîtier de son… Très bonne maîtrise. À bientôt.",
+              },
+            ].map((r) => (
+              <article class="review-card">
+                <div class="sweep absolute inset-0 rounded-3xl pointer-events-none"></div>
+
+                <div class="relative">
+                  <div class="flex items-center justify-between gap-3">
+                    <div class="text-white/90 font-semibold">{r.name}</div>
+                    <div class="stars stars--small flex items-center gap-1 text-yellow-400 text-sm">
+                      <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                  </div>
+
+                  <p class="mt-4 text-sm text-white/65 leading-relaxed">
+                    {r.text}
+                  </p>
+
+                  <div class="mt-6 text-xs text-white/45">
+                    Source : Google Reviews
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
         <button
           type="button"
           class="reviews-arrow reviews-arrow--right"
@@ -461,76 +699,17 @@ import ScrollReveal from "../components/ScrollReveal.astro";
         >
           →
         </button>
+      </div>
 
-        {/* Fade edges */}
-        <div class="pointer-events-none absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-base-100/95 to-transparent z-10"></div>
-        <div class="pointer-events-none absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-base-100/95 to-transparent z-10"></div>
-
-        {/* TRACK */}
-        <div
-          class="reviews-carousel"
-          data-reviews-track
-          aria-label="Avis Google"
-        >
-          {[
-            {
-              name: "Mounir B.",
-              text: "J’ai été refaire une duplication de clé. Très satisfait et par la même occasion j’ai fait un stage 1 de ma Peugeot 308… Je recommande les yeux fermés !",
-            },
-            {
-              name: "Gor A.",
-              text: "Problème de calculateur sur ma BMW 330e, réglé en une seule après-midi. Travail très professionnel, rapide et soigné… Je recommande vivement !",
-            },
-            {
-              name: "Firas B.",
-              text: "Intervention sur ma BMW E46. Correction électronique du pot catalytique. Service compétent avec un prix raisonnable et un délai compétitif.",
-            },
-            {
-              name: "Jacques P.",
-              text: "Problème AdBlue sur mon Discovery + augmentation puissance… Professionnalisme rare en électronique automobile. Je recommande à 1000%.",
-            },
-            {
-              name: "Yassine A.",
-              text: "Top du top les deux frères ! RSQ3 stage 2… Réparation boîtier CASS… Ils maîtrisent beaucoup leur domaine. Merci encore. Je recommande.",
-            },
-            {
-              name: "Jose C.",
-              text: "Très belle expérience chez Auto Softronics. Correction ACC et problème de boîtier de son… Très bonne maîtrise. À bientôt.",
-            },
-          ].map((r) => (
-            <article class="review-card">
-              <div class="sweep absolute inset-0 rounded-3xl pointer-events-none"></div>
-
-              <div class="relative">
-                <div class="flex items-center justify-between gap-3">
-                  <div class="text-white/90 font-semibold">{r.name}</div>
-                  <div class="stars stars--small flex items-center gap-1 text-yellow-400 text-sm">
-                    <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
-                  </div>
-                </div>
-
-                <p class="mt-4 text-sm text-white/65 leading-relaxed">
-                  {r.text}
-                </p>
-
-                <div class="mt-6 text-xs text-white/45">
-                  Source : Google Reviews
-                </div>
-              </div>
-            </article>
-          ))}
+      {/* PROGRESS */}
+      <div class="mt-6 flex justify-center">
+        <div class="reviews-progress" aria-hidden="true">
+          <div class="reviews-progress__bar" data-reviews-progress></div>
         </div>
+      </div>
 
-        {/* PROGRESS */}
-        <div class="mt-6 flex justify-center">
-          <div class="reviews-progress" aria-hidden="true">
-            <div class="reviews-progress__bar" data-reviews-progress></div>
-          </div>
-        </div>
-
-        <div class="mt-4 text-center text-sm text-white/55">
-          Faites défiler → pour voir plus d’avis
-        </div>
+      <div class="mt-4 text-center text-sm text-white/55">
+        Faites défiler → pour voir plus d’avis
       </div>
     </ScrollReveal>
 
@@ -547,6 +726,19 @@ import ScrollReveal from "../components/ScrollReveal.astro";
   </div>
 
   <style>
+    /* ============ LAYOUT WRAPPER ============ */
+    .reviews-shell{
+      display: grid;
+      grid-template-columns: 56px minmax(0, 1fr) 56px;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .reviews-stage{
+      position: relative;
+      min-width: 0;
+    }
+
     /* ============ CAROUSEL ============ */
     .reviews-carousel{
       display: flex;
@@ -561,12 +753,11 @@ import ScrollReveal from "../components/ScrollReveal.astro";
     }
     .reviews-carousel:active{ cursor: grabbing; }
 
-    /* largeur lisible (FIN du texte en colonne) */
     .review-card{
       position: relative;
       flex: 0 0 auto;
-      width: 560px;              /* desktop */
-      max-width: 86vw;           /* mobile */
+      width: 560px;
+      max-width: 86vw;
       scroll-snap-align: start;
       border-radius: 24px;
       border: 1px solid rgba(255,255,255,.10);
@@ -576,9 +767,11 @@ import ScrollReveal from "../components/ScrollReveal.astro";
       overflow: hidden;
       transition: transform .35s ease, border-color .35s ease;
     }
+
     @media (min-width: 1024px){
       .review-card{ width: 520px; }
     }
+
     .review-card:hover{
       transform: translateY(-4px);
       border-color: rgba(255,255,255,.25);
@@ -592,9 +785,7 @@ import ScrollReveal from "../components/ScrollReveal.astro";
 
     /* ============ FLÈCHES ============ */
     .reviews-arrow{
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      position: static;
       z-index: 20;
       height: 44px;
       width: 44px;
@@ -607,19 +798,25 @@ import ScrollReveal from "../components/ScrollReveal.astro";
       place-items: center;
       transition: transform .25s ease, background .25s ease, border-color .25s ease, opacity .25s ease;
       opacity: .9;
+      justify-self: center;
+      flex-shrink: 0;
     }
+
     .reviews-arrow:hover{
       background: rgba(10,10,14,.75);
       border-color: rgba(255,255,255,.24);
-      transform: translateY(-50%) scale(1.06);
+      transform: scale(1.06);
       opacity: 1;
     }
-    .reviews-arrow--left{ left: -6px; }
-    .reviews-arrow--right{ right: -6px; }
 
-    /* mobile: flèches un peu plus discrètes */
+    /* mobile: flèches masquées */
     @media (max-width: 640px){
-      .reviews-arrow{ display:none; }
+      .reviews-shell{
+        grid-template-columns: 1fr;
+      }
+      .reviews-arrow{
+        display:none;
+      }
     }
 
     /* ============ PROGRESS BAR ============ */
@@ -631,6 +828,7 @@ import ScrollReveal from "../components/ScrollReveal.astro";
       overflow: hidden;
       border: 1px solid rgba(255,255,255,.10);
     }
+
     .reviews-progress__bar{
       height: 100%;
       width: 0%;
@@ -642,23 +840,26 @@ import ScrollReveal from "../components/ScrollReveal.astro";
     /* ============ LIGHT SWEEP ============ */
     .review-card .sweep::before{
       content:"";
-      position:absolute; inset:-40%;
+      position:absolute;
+      inset:-40%;
       background: linear-gradient(115deg, transparent 45%, rgba(255,255,255,.08) 50%, transparent 55%);
       transform: translateX(-30%) rotate(8deg);
       opacity: 0;
       transition: transform .6s ease, opacity .6s ease;
     }
+
     .review-card:hover .sweep::before{
       opacity: 1;
       transform: translateX(30%) rotate(8deg);
     }
 
-    /* ============ STARS (subtil) ============ */
+    /* ============ STARS ============ */
     .stars .star{
       display:inline-block;
       animation: starPulse 3.8s ease-in-out infinite;
       opacity: .95;
     }
+
     .stars .star:nth-child(2){ animation-delay: .12s; }
     .stars .star:nth-child(3){ animation-delay: .24s; }
     .stars .star:nth-child(4){ animation-delay: .36s; }
@@ -680,7 +881,6 @@ import ScrollReveal from "../components/ScrollReveal.astro";
     }
   </style>
 
-  {/* JS ultra léger : flèches + progress + drag */}
   <script is:inline>
     (() => {
       const track = document.querySelector('[data-reviews-track]');
@@ -711,7 +911,6 @@ import ScrollReveal from "../components/ScrollReveal.astro";
       window.addEventListener('resize', updateProgress);
       updateProgress();
 
-      // Drag (desktop) : très léger
       let isDown = false;
       let startX = 0;
       let startLeft = 0;
@@ -743,37 +942,26 @@ import ScrollReveal from "../components/ScrollReveal.astro";
 
   <!-- Début Marque -->
 <section class="relative overflow-hidden py-24">
- <!-- FOND (cinéma premium) -->
-<div class="absolute inset-0 z-0">
-  <img
-    src="/assets/brand/bg-marques.jpg"
-    alt=""
-    class="h-full w-screen object-cover scale-110 brightness-[.55] contrast-[1.15] saturate-[1.05]"
-    loading="lazy"
-  />
+  <!-- FOND (cinéma premium, plus visible) -->
+  <div class="absolute inset-0 z-0">
+    <img
+      src="/assets/brand/bg-marques.jpg"
+      alt=""
+      class="h-full w-screen object-cover scale-105 brightness-[.72] contrast-[1.08] saturate-[1.08]"
+      loading="lazy"
+    />
 
-  <!-- Dégradé vertical (lisibilité) -->
-  <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-base-100"></div>
+    <!-- Dégradé vertical plus léger -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/45 via-black/18 to-base-100"></div>
 
-  <!-- Vignettage cinéma (bords sombres) -->
-  <div class="absolute inset-0 [background:radial-gradient(1200px_650px_at_50%_40%,rgba(0,0,0,.15)_0%,rgba(0,0,0,.55)_78%,rgba(0,0,0,.75)_100%)]"></div>
-
-  <!-- Glow subtil premium (moins agressif) -->
-  <div class="pointer-events-none absolute -top-40 left-1/2 h-80 w-[70rem] -translate-x-1/2 rounded-full blur-3xl opacity-20 bg-gradient-to-r from-primary/25 via-accent/15 to-secondary/25"></div>
-
-  <!-- Grain ULTRA subtil (si tu en veux, sinon supprime ce bloc) -->
-  <div class="pointer-events-none absolute inset-0 opacity-[0.015] mix-blend-soft-light [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,.35)_1px,transparent_1px)] [background-size:26px_26px] blur-[0.3px]"></div>
-</div>
-
-    <!-- Overlay sombre pour lisibilité -->
-    <div class="absolute inset-0 bg-gradient-to-b from-black/85 via-black/70 to-base-100"></div>
+    <!-- Vignettage plus subtil -->
+    <div class="absolute inset-0 [background:radial-gradient(1200px_650px_at_50%_42%,rgba(0,0,0,.06)_0%,rgba(0,0,0,.34)_72%,rgba(0,0,0,.56)_100%)]"></div>
 
     <!-- Glow premium -->
-    <div class="pointer-events-none absolute -top-24 left-1/2 h-72 w-[58rem] -translate-x-1/2 rounded-full blur-3xl opacity-20 bg-gradient-to-r from-primary via-accent to-secondary"></div>
-<!-- CINEMA GLOW LAYER -->
-<div class="pointer-events-none absolute inset-0 -z-10 cinema-glow"></div>
-    <!-- Grain léger -->
-    
+    <div class="pointer-events-none absolute -top-36 left-1/2 h-80 w-[72rem] -translate-x-1/2 rounded-full blur-3xl opacity-22 bg-gradient-to-r from-primary/25 via-accent/15 to-secondary/25"></div>
+
+    <!-- Grain ultra subtil -->
+    <div class="pointer-events-none absolute inset-0 opacity-[0.012] mix-blend-soft-light [background-image:radial-gradient(circle_at_1px_1px,rgba(255,255,255,.35)_1px,transparent_1px)] [background-size:26px_26px] blur-[0.3px]"></div>
   </div>
 
   <!-- CONTENU (au-dessus du fond) -->
@@ -828,4 +1016,39 @@ import ScrollReveal from "../components/ScrollReveal.astro";
   </div>
 </section>
 
+<section class="relative py-28 overflow-hidden">
+
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-transparent via-black/40 to-black"></div>
+
+  <div class="max-w-4xl mx-auto px-6 text-center">
+
+    <h2 class="text-4xl md:text-5xl font-bold leading-tight">
+      Un problème électronique sur votre véhicule ?
+    </h2>
+
+    <p class="mt-6 text-white/70 text-lg leading-relaxed">
+      Diagnostic précis, programmation et réparation électronique automobile.
+      Parlons de votre problème et trouvons la solution adaptée.
+    </p>
+
+    <div class="mt-10 flex justify-center gap-4 flex-wrap">
+
+      <a
+        href="/contact"
+        class="btn btn-primary btn-lg shadow-lg shadow-primary/25"
+      >
+        Discuter de votre véhicule
+      </a>
+
+      <a
+        href="tel:+32470105034"
+        class="btn btn-outline btn-lg border-white/25 text-white hover:bg-white/10"
+      >
+        Appeler
+      </a>
+
+    </div>
+
+  </div>
+</section>
 </BaseLayout>

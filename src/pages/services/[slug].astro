@@ -31,12 +31,77 @@ const trust = {
 const trustText = trust[service.slug] ?? "Atelier spécialisé – service premium";
 
 const bgUrl = `/assets/services/${service.slug}.jpg`;
+
+/** ✅ FAQ ciblée par service */
+const serviceFaq = {
+  diagnostic: [
+    {
+      q: "Combien coûte un diagnostic électronique automobile ?",
+      a: "Le prix dépend du véhicule, des symptômes et du niveau de recherche nécessaire. Un diagnostic simple ne demande pas le même temps qu’une panne électronique complexe. Contactez-nous avec le modèle, l’année et le problème pour recevoir une estimation claire."
+    },
+    {
+      q: "Combien de temps prend un diagnostic électronique ?",
+      a: "La durée dépend de la complexité de la panne. Certains diagnostics sont rapides, d’autres demandent des contrôles plus poussés, des mesures ou des vérifications réseau. Notre objectif est d’identifier la cause réelle, pas seulement d’effacer un défaut."
+    },
+    {
+      q: "Quels véhicules sont compatibles pour un diagnostic ?",
+      a: "Nous intervenons sur de nombreuses marques et différents systèmes électroniques selon compatibilité. Le plus simple est de nous envoyer la marque, le modèle, l’année et la motorisation pour vérification."
+    }
+  ],
+  programmation: [
+    {
+      q: "La programmation ECU est-elle sécurisée ?",
+      a: "Oui, lorsqu’elle est réalisée avec méthode et après vérification de compatibilité. Nous privilégions les procédures maîtrisées, les sauvegardes lorsque c’est nécessaire et une validation après intervention."
+    },
+    {
+      q: "Pouvez-vous coder ou adapter des modules électroniques ?",
+      a: "Oui, selon le véhicule et le module concerné, nous réalisons des opérations de codage, d’adaptation, de configuration ou de programmation."
+    },
+    {
+      q: "Tous les calculateurs peuvent-ils être programmés ?",
+      a: "Non, cela dépend de la génération du véhicule, du type de calculateur, de son état et de la compatibilité de la procédure. Nous vérifions cela avant toute intervention."
+    }
+  ],
+  reparation: [
+    {
+      q: "Peut-on réparer un calculateur électronique automobile ?",
+      a: "Dans certains cas oui, selon la panne, le type de boîtier et l’état réel des composants. Dans d’autres cas, un remplacement ou une autre solution est plus adapté."
+    },
+    {
+      q: "Faites-vous des tests après réparation ?",
+      a: "Oui, nous privilégions une validation après intervention afin de vérifier le bon fonctionnement avant restitution."
+    },
+    {
+      q: "Faut-il remplacer le module ou peut-on le réparer ?",
+      a: "Cela dépend du type de panne et de la viabilité technique de la réparation. L’objectif est de proposer la solution la plus cohérente et la plus durable."
+    }
+  ]
+} as const;
+
+const faqItems = serviceFaq[service.slug] ?? [];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map((item) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.a
+    }
+  }))
+};
 ---
 
 <BaseLayout
   title={service.seo?.title ?? `${service.name} | Autosoftronics`}
   description={service.seo?.description ?? service.short}
 >
+  {faqItems.length ? (
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  ) : null}
+
   <section
     class="svc relative overflow-hidden pt-24 pb-24"
     style={`--tone-a:${t.a}; --tone-b:${t.b}; --service-bg:url('${bgUrl}');`}
@@ -60,13 +125,19 @@ const bgUrl = `/assets/services/${service.slug}.jpg`;
       {/* HERO */}
       <ScrollReveal>
         <div class="max-w-3xl">
-          <a href="/services" class="text-white/60 hover:text-white transition">
-            ← Retour aux services
+          <a
+            href="/services"
+            class="inline-flex items-center gap-2 text-sm text-white/50 hover:text-white/80 transition"
+          >
+            <span>←</span>
+            <span>Retour aux services</span>
           </a>
 
-          <div class="mt-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
-            <span class="h-2 w-2 rounded-full bg-success"></span>
-            {service.name}
+          <div class="mt-5">
+            <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
+              <span class="h-2 w-2 rounded-full bg-success"></span>
+              {service.name}
+            </div>
           </div>
 
           <h1 class="mt-6 text-4xl md:text-6xl font-bold tracking-tight leading-tight">
@@ -133,7 +204,7 @@ const bgUrl = `/assets/services/${service.slug}.jpg`;
                 <ul class="mt-6 grid gap-3 sm:grid-cols-2 text-white/70 min-w-0">
                   {service.includes.map((line) => (
                     <li class="flex gap-3 min-w-0">
-                      <span class="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0"></span>
+                      <span class="service-bullet mt-2 shrink-0"></span>
                       <span class="leading-relaxed min-w-0">{line}</span>
                     </li>
                   ))}
@@ -208,6 +279,46 @@ const bgUrl = `/assets/services/${service.slug}.jpg`;
           </aside>
         </ScrollReveal>
       </div>
+
+      {/* FAQ SERVICE SEO */}
+      {faqItems.length ? (
+        <div class="mt-20">
+          <ScrollReveal>
+            <div class="max-w-3xl">
+              <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
+                <span class="h-2 w-2 rounded-full bg-success"></span>
+                Questions fréquentes
+              </div>
+
+              <h2 class="mt-6 text-3xl md:text-4xl font-bold tracking-tight">
+                FAQ {service.name}
+              </h2>
+
+              <p class="mt-4 text-white/70 leading-relaxed max-w-2xl">
+                Retrouvez ici les réponses aux questions fréquentes liées à cette prestation.
+              </p>
+            </div>
+          </ScrollReveal>
+
+          <div class="mt-10 space-y-4">
+            {faqItems.map((item, index) => (
+              <ScrollReveal delay={index * 40}>
+                <details class="faq-item group">
+                  <summary class="faq-summary">
+                    <span class="faq-number">{String(index + 1).padStart(2, "0")}</span>
+                    <span class="faq-question">{item.q}</span>
+                    <span class="faq-icon">+</span>
+                  </summary>
+
+                  <div class="faq-answer">
+                    <p>{item.a}</p>
+                  </div>
+                </details>
+              </ScrollReveal>
+            ))}
+          </div>
+        </div>
+      ) : null}
     </div>
 
     <style>
@@ -343,10 +454,110 @@ const bgUrl = `/assets/services/${service.slug}.jpg`;
         50%{ opacity:.55; transform: translate3d(10%,0,0); }
       }
 
+      .service-bullet{
+        width: 6px;
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(var(--tone-a), .95);
+        box-shadow: 0 0 0 4px rgba(var(--tone-a), .12);
+        display: inline-block;
+      }
+
+      /* FAQ */
+      .faq-item{
+        border: 1px solid rgba(255,255,255,.10);
+        background: rgba(18,18,24,.28);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border-radius: 1.5rem;
+        overflow: hidden;
+        transition: border-color .25s ease, background .25s ease, transform .25s ease;
+      }
+
+      .faq-item:hover{
+        border-color: rgba(255,255,255,.18);
+        background: rgba(18,18,24,.36);
+        transform: translateY(-1px);
+      }
+
+      .faq-summary{
+        list-style: none;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 16px;
+        align-items: center;
+        padding: 22px 24px;
+        cursor: pointer;
+      }
+
+      .faq-summary::-webkit-details-marker{
+        display: none;
+      }
+
+      .faq-number{
+        font-size: 12px;
+        color: rgba(255,255,255,.45);
+        min-width: 26px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .faq-question{
+        font-size: 17px;
+        font-weight: 600;
+        line-height: 1.4;
+        color: rgba(255,255,255,.92);
+      }
+
+      .faq-icon{
+        width: 28px;
+        height: 28px;
+        display: grid;
+        place-items: center;
+        border-radius: 999px;
+        border: 1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.04);
+        color: rgba(255,255,255,.75);
+        transition: transform .25s ease, background .25s ease, border-color .25s ease;
+        font-size: 18px;
+        line-height: 1;
+      }
+
+      .faq-item[open] .faq-icon{
+        transform: rotate(45deg);
+        background: rgba(255,255,255,.08);
+        border-color: rgba(255,255,255,.18);
+      }
+
+      .faq-answer{
+        padding: 0 24px 22px 66px;
+        color: rgba(255,255,255,.68);
+        line-height: 1.8;
+        font-size: 15px;
+      }
+
+      @media (max-width: 768px){
+        .faq-summary{
+          padding: 18px 18px;
+          gap: 12px;
+        }
+
+        .faq-question{
+          font-size: 16px;
+        }
+
+        .faq-answer{
+          padding: 0 18px 18px 56px;
+          font-size: 14px;
+          line-height: 1.7;
+        }
+      }
+
       @media (prefers-reduced-motion: reduce){
         .glass-card, .sheen::before{ transition:none !important; }
         .glass-card:hover{ transform:none; }
         .sheen::before{ opacity:0 !important; }
+        .faq-item, .faq-icon{ transition:none !important; }
+        .faq-item:hover{ transform:none; }
       }
     </style>
   </section>
