@@ -92,6 +92,7 @@ export const services: Service[] = [
       "Remplacement et/ou adaptation module ECU, BSI, ABS, Airbag",
       "Clonage de modules électroniques",
       "Mise à jour logiciel constructeur",
+      "Reproduction de clé automobile",
       "Réinitialisation de système crash Airbags",
       "Recherche de pannes électrique et électroniques complexes",
       "Configuration modules après remplacement",
