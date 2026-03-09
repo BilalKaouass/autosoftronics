@@ -29,7 +29,7 @@ export const services: Service[] = [
     },
     hero: {
       eyebrow: "Service 01 — Diagnostic",
-      title: "Diagnostic électronique",
+      title: "Diagnostic avancés",
       subtitle:
         "Identifier la cause réelle, pas seulement le symptôme. Contrôles ciblés, mesures et analyse réseau CAN.",
     },
@@ -77,7 +77,7 @@ export const services: Service[] = [
     },
     hero: {
       eyebrow: "Service 02 — Programmation",
-      title: "Programmation & reprogrammation",
+      title: "Programmation",
       subtitle:
         "Codage propre, procédures maîtrisées et validation post-intervention. Options & rétrofits selon compatibilité.",
     },
@@ -88,9 +88,12 @@ export const services: Service[] = [
     ],
     includes: [
       "Programmation et codage de calculateurs",
-      "Adaptation ECU, BSI, ABS, Airbag",
+      "Cartographie	moteur et boite de transmission",
+      "Remplacement et/ou adaptation module ECU, BSI, ABS, Airbag",
       "Clonage de modules électroniques",
       "Mise à jour logiciel constructeur",
+      "Réinitialisation de système crash Airbags",
+      "Recherche de pannes électrique et électroniques complexes",
       "Configuration modules après remplacement",
       "Suppression / adaptation antidémarrage (selon législation)",
       "Ajout d’options constructeur (activation fonctionnalités cachées)",
@@ -138,14 +141,14 @@ export const services: Service[] = [
       { label: "Contrôlé", value: "Tests avant/après" },
     ],
     includes: [
-      "Réparation calculateurs moteur (ECU)",
+      "Réparation calculateurs moteur",
       "Réparation modules ABS / ESP",
-      "Réparation Airbag",
+      "Réparation électronique de la boite à transmission (DSG VW)",
+      "Réparation modules FRM/CAS",
       "Réparation BSI / BCM",
-      "Réparation tableaux de bord",
-      "Réparation colonnes de direction électroniques",
-      "Remplacement composants CMS (SMD)",
-      "Réparation pistes, masses et circuits imprimés",
+      "Réparation de compteurs, unité multimédia et système audio embarqué",
+      "Remplacement de composants électroniques défectueux et réparation de pistes et masses sur circuits imprimés (PCB)",
+      "Réparation de modules de direction assistés",
     ],
     process: [
       {
