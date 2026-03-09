@@ -144,11 +144,13 @@ export const services: Service[] = [
       "Réparation calculateurs moteur",
       "Réparation modules ABS / ESP",
       "Réparation électronique de la boite à transmission (DSG VW)",
-      "Réparation modules FRM/CAS",
+      "Réparation modules FRM/CAS (BMW)",
       "Réparation BSI / BCM",
       "Réparation de compteurs, unité multimédia et système audio embarqué",
-      "Remplacement de composants électroniques défectueux et réparation de pistes et masses sur circuits imprimés (PCB)",
       "Réparation de modules de direction assistés",
+      "Réparation clé automobile",
+      "Remplacement de composants électroniques défectueux et réparation de pistes et masses sur circuits imprimés (PCB)",
+      "Réparation de modules EZS et ESL (systèmes de démarrage et de verrouillage de direction Mercedes)"
     ],
     process: [
       {
