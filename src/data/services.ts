@@ -41,7 +41,7 @@ export const services: Service[] = [
     includes: [
       "Diagnostic électronique automobile",
       "Diagnostic complet des modules et calculateurs (ECU, ABS, Airbag, BSI/BCM, TDB, Direction assistée, etc.)",
-      "Lecture et effacement des code défauts",
+      "Lecture et effacement des codes défauts",
       'Analyse des données en temps réel ("live data")',
       "Recherche de pannes électroniques complexes",
       "Contrôle alimentation, masses et communication CAN",
