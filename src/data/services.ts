@@ -39,12 +39,15 @@ export const services: Service[] = [
       { label: "Méthode", value: "Sur véhicule & sur banc" },
     ],
     includes: [
-      "Diagnostic complet des calculateurs (ECU, ABS, Airbag, BSI/BCM, TDB, Direction assistée, etc.)",
-      "Lecture et effacement des défauts",
+      "Diagnostic électronique automobile",
+      "Diagnostic complet des modules et calculateurs (ECU, ABS, Airbag, BSI/BCM, TDB, Direction assistée, etc.)",
+      "Lecture et effacement des code défauts",
       'Analyse des données en temps réel ("live data")',
       "Recherche de pannes électroniques complexes",
       "Contrôle alimentation, masses et communication CAN",
       "Diagnostic sur banc et sur véhicule",
+      "Diagnostic boite à vitesse DSG",
+      "Diagnostic des problèmes anti-pollutions (FAP, ADBLUE et EGR)",
     ],
     process: [
       {
@@ -88,18 +91,18 @@ export const services: Service[] = [
     ],
     includes: [
       "Programmation et codage de calculateurs",
-      "Cartographie	moteur et boite de transmission",
-      "Remplacement et/ou adaptation module ECU, BSI, ABS, Airbag",
-      "Clonage de modules électroniques",
+      "Reprogrammation moteur et boite de transmission",
+      "Clonage de modules et calculateurs électroniques automobile",
       "Mise à jour logiciel constructeur",
       "Reproduction de clé automobile",
       "Réinitialisation de système crash Airbags",
       "Recherche de pannes électrique et électroniques complexes",
       "Configuration modules après remplacement",
-      "Suppression / adaptation antidémarrage (selon législation)",
+      "Adaptation antidémarrage (IMMO)",
       "Ajout d’options constructeur (activation fonctionnalités cachées)",
       "Programmation d’options après retrofit (caméra, radar, virtual cockpit, etc.)",
       "Activation Apple CarPlay / Android Auto (selon compatibilité)",
+      "Clonage de mécatronique de boîte à vitesse DSG",
     ],
     process: [
       {
@@ -146,12 +149,13 @@ export const services: Service[] = [
       "Réparation modules ABS / ESP",
       "Réparation électronique de la boite à transmission (DSG VW)",
       "Réparation modules FRM/CAS (BMW)",
-      "Réparation BSI / BCM",
+      "Réparation centrale électrique (BSI, BCM, BDC, FEM,...)",
       "Réparation de compteurs, unité multimédia et système audio embarqué",
       "Réparation de modules de direction assistés",
       "Réparation clé automobile",
       "Remplacement de composants électroniques défectueux et réparation de pistes et masses sur circuits imprimés (PCB)",
-      "Réparation de modules EZS et ESL (systèmes de démarrage et de verrouillage de direction Mercedes)"
+      "Réparation de modules EZS et ESL (systèmes de démarrage et de verrouillage de direction Mercedes)",
+      "Solution pour les systèmes anti-pollutions (FAP, ADBLUE et EGR)",
     ],
     process: [
       {
