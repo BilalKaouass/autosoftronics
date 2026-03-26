@@ -1,0 +1,58 @@
+---
+const { as = "div", class: className = "", delay = 0 } = Astro.props;
+const Tag = as;
+---
+
+<Tag class={`sr-item ${className}`} style={`--sr-delay:${delay}ms`}>
+  <slot />
+</Tag>
+
+<script>
+  // Initialisation 1 seule fois
+  if (!window.__srInit) {
+    window.__srInit = true;
+
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("sr-in");
+            io.unobserve(e.target);
+          }
+        }
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -10% 0px" }
+    );
+
+    window.addEventListener("DOMContentLoaded", () => {
+      document.querySelectorAll(".sr-item").forEach((el) => io.observe(el));
+    });
+  }
+</script>
+
+<style>
+  .sr-item{
+    /* ✅ IMPORTANT: évite les layouts "écrasés" */
+    display: block;
+    width: 100%;
+    min-width: 0;
+
+    opacity: 0;
+    transform: translateY(14px) scale(.995);
+    filter: blur(6px);
+    transition:
+      opacity .7s ease,
+      transform .7s ease,
+      filter .7s ease;
+    transition-delay: var(--sr-delay, 0ms);
+    will-change: opacity, transform, filter;
+  }
+  .sr-item.sr-in{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .sr-item{ opacity: 1; transform: none; filter: none; transition: none; }
+  }
+</style>

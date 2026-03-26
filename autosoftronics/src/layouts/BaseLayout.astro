@@ -1,0 +1,110 @@
+---
+import "../styles/global.css";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+import Seo from "../components/Seo.astro";
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["AutoRepair", "LocalBusiness"],
+  "name": "Autosoftronics",
+  "url": "https://autosoftronics.be",
+  "logo": "https://autosoftronics.be/assets/brand/icon.png",
+  "image": "https://autosoftronics.be/assets/brand/bg-atelier.jpg",
+  "description":
+    "Diagnostic électronique automobile, programmation ECU, codage de modules et réparation électronique multimarque.",
+  "telephone": "+32470139975",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Chau. Impériale 97",
+    "postalCode": "6060",
+    "addressLocality": "Charleroi",
+    "addressCountry": "BE"
+  },
+  "areaServed": {
+    "@type": "Place",
+    "name": "Belgique"
+  },
+  "priceRange": "€€",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday"
+      ],
+      "opens": "14:00",
+      "closes": "19:00"
+    }
+  ],
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "79"
+  },
+  "sameAs": [
+    "https://www.facebook.com/p/Auto-Softronics-61560957540070/",
+    "https://www.instagram.com/auto_softronics?igsh=MTEwZXc1cG05MXhzaQ==",
+    "https://www.google.com/maps?cid=5993298853706409271"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services automobiles",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Diagnostic électronique automobile",
+          "description": "Analyse des défauts, lecture ECU, tests capteurs et réseau CAN."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Programmation ECU",
+          "description": "Codage, adaptation, configuration et programmation de calculateurs et modules."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Réparation électronique automobile",
+          "description": "Réparation de calculateurs, modules électroniques et systèmes embarqués."
+        }
+      }
+    ]
+  }
+};
+---
+
+<!doctype html>
+<html lang="fr" data-theme="autosoftronics">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Seo title={title} description={description} canonical={canonical} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)}></script>
+  </head>
+
+  <body class="min-h-screen bg-base-100 text-base-content overflow-x-hidden">
+    <Navbar />
+    <main class="relative bg-base-100">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<nav class="navbar navbar-cinema sticky top-0 z-50">
+  <div class="navbar-start">
+    <a href="/" class="btn btn-ghost gap-2">
+      <img src="/assets/brand/icon.png" alt="Autosoftronics" class="w-7 h-7" />
+      <span class="text-lg font-semibold">Autosoftronics</span>
+    </a>
+  </div>
+
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1">
+      <li><a href="/">Accueil</a></li>
+      <li>
+        <details>
+          <summary>Services</summary>
+          <ul class="p-2 navbar-dropdown rounded-box w-56">
+            <li><a href="/services/diagnostic">Diagnostic</a></li>
+            <li><a href="/services/programmation">Programmation</a></li>
+            <li><a href="/services/reparation">Réparation</a></li>
+          </ul>
+        </details>
+      </li>
+      <li><a href="/a-propos">À propos</a></li>
+      <li><a href="/faq">FAQ</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="navbar-end gap-2">
+    <a class="btn btn-primary hidden sm:inline-flex shadow-lg shadow-primary/20" href="/contact">
+      Demander un devis
+    </a>
+
+    <div class="dropdown dropdown-end lg:hidden">
+      <label tabindex="0" class="btn btn-ghost">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </label>
+
+      <ul tabindex="0" class="menu dropdown-content mt-3 p-2 navbar-dropdown rounded-box w-60">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/services">Services</a></li>
+        <li><a href="/services/diagnostic">Diagnostic</a></li>
+        <li><a href="/services/programmation">Programmation</a></li>
+        <li><a href="/services/reparation">Réparation</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
