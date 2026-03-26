@@ -17,6 +17,7 @@ const tone = {
   diagnostic: { a: "59,130,246", b: "139,92,246" },
   programmation: { a: "139,92,246", b: "217,70,239" },
   reparation: { a: "245,158,11", b: "139,92,246" },
+  performance: { a: "16,185,129", b: "59,130,246" },
 } as const;
 
 const t = tone[service.slug] ?? { a: "139,92,246", b: "59,130,246" };
@@ -26,6 +27,7 @@ const trust = {
   diagnostic: "+250 véhicules diagnostiqués",
   programmation: "Procédures sécurisées & sauvegarde ECU",
   reparation: "Réparations durables, tests avant/après",
+  performance: "Optimisation maîtrisée & validation finale",
 } as const;
 
 const trustText = trust[service.slug] ?? "Atelier spécialisé – service premium";
@@ -74,6 +76,20 @@ const serviceFaq = {
     {
       q: "Faut-il remplacer le module ou peut-on le réparer ?",
       a: "Cela dépend du type de panne et de la viabilité technique de la réparation. L’objectif est de proposer la solution la plus cohérente et la plus durable."
+    }
+  ],
+  performance: [
+    {
+      q: "L’optimisation performance est-elle adaptée à tous les véhicules ?",
+      a: "Non, cela dépend de la motorisation, de l’état du véhicule, de son électronique et de sa compatibilité. Une vérification préalable est toujours nécessaire."
+    },
+    {
+      q: "Cherchez-vous seulement plus de puissance ?",
+      a: "Pas uniquement. L’objectif peut aussi être d’améliorer l’agrément, la souplesse, la réactivité et le couple, selon le besoin du client."
+    },
+    {
+      q: "Y a-t-il une validation après intervention ?",
+      a: "Oui, nous privilégions une vérification post-intervention afin de confirmer le bon fonctionnement et la cohérence du résultat."
     }
   ]
 } as const;

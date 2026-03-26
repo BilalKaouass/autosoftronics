@@ -4,7 +4,7 @@ import Reveal from "../components/Reveal.astro";
 
 const title = "FAQ | Autosoftronics";
 const description =
-  "Questions fréquentes sur le diagnostic électronique, la programmation ECU, la réparation électronique automobile, les délais, la compatibilité et les demandes de devis.";
+  "Questions fréquentes sur le diagnostic électronique, la programmation ECU, la réparation électronique automobile, la performance moteur, les délais, la compatibilité et les demandes de devis.";
 
 const faqItems = [
   {
@@ -21,7 +21,7 @@ const faqItems = [
   },
   {
     q: "Pouvez-vous intervenir sur un calculateur moteur (ECU) ?",
-    a: "Oui, selon le cas, nous pouvons diagnostiquer, programmer, adapter ou réparer certains calculateurs et modules électroniques. Chaque situation dépend du véhicule, du type de boîtier et de l’état réel de l’équipement."
+    a: "Oui, selon le cas, nous pouvons diagnostiquer, programmer, adapter, optimiser ou réparer certains calculateurs et modules électroniques. Chaque situation dépend du véhicule, du type de boîtier et de l’état réel de l’équipement."
   },
   {
     q: "La programmation ECU est-elle sécurisée ?",
@@ -34,6 +34,14 @@ const faqItems = [
   {
     q: "Faites-vous aussi le codage et l’adaptation de modules ?",
     a: "Oui, nous réalisons selon compatibilité des opérations de codage, d’adaptation, de configuration ou de programmation sur différents modules électroniques."
+  },
+  {
+    q: "Proposez-vous aussi des prestations performance ?",
+    a: "Oui, selon le véhicule et sa compatibilité, nous pouvons intervenir sur des optimisations performance avec contrôle préalable, adaptation selon la configuration et validation après intervention."
+  },
+  {
+    q: "L’optimisation performance est-elle possible sur tous les véhicules ?",
+    a: "Non, cela dépend de la motorisation, de l’électronique embarquée, de l’état du véhicule et de la compatibilité de l’intervention. Une vérification préalable est toujours nécessaire avant de confirmer la faisabilité."
   },
   {
     q: "Que faut-il envoyer pour obtenir un avis rapide ?",
@@ -49,7 +57,7 @@ const faqItems = [
   },
   {
     q: "Faites-vous uniquement du diagnostic ou aussi de la réparation ?",
-    a: "Nous intervenons selon les besoins en diagnostic électronique, programmation, adaptation, codage et réparation électronique automobile."
+    a: "Nous intervenons selon les besoins en diagnostic électronique, programmation, adaptation, codage, performance et réparation électronique automobile."
   },
   {
     q: "Comment demander un devis ou une estimation ?",
@@ -96,14 +104,15 @@ const faqSchema = {
 
           <p class="mt-5 text-white/70 text-lg leading-relaxed max-w-2xl">
             Tout ce qu’il faut savoir sur le diagnostic électronique, la programmation ECU,
-            la réparation électronique automobile, les délais, la compatibilité et les demandes de devis.
+            la réparation électronique automobile, la performance moteur, les délais, la compatibilité
+            et les demandes de devis.
           </p>
 
           <div class="mt-8 flex flex-wrap gap-3">
             <a href="/contact" class="btn btn-primary btn-lg shadow-lg shadow-primary/25">
               Poser une question
             </a>
-            <a href="/services" class="btn btn-ghost border border-white/15">
+            <a href="/services" class="btn btn-ghost btn-lg border border-white/15">
               Voir nos services
             </a>
           </div>
@@ -120,8 +129,9 @@ const faqSchema = {
         <p class="mt-4 text-white/70 leading-relaxed max-w-4xl">
           Cette FAQ a été pensée pour répondre aux questions les plus courantes sur nos prestations :
           diagnostic électronique automobile, programmation de calculateurs, codage de modules,
-          recherche de panne et réparation électronique. Si vous ne trouvez pas votre réponse ici,
-          vous pouvez nous envoyer directement les informations de votre véhicule via la page contact.
+          recherche de panne, performance moteur et réparation électronique. Si vous ne trouvez pas
+          votre réponse ici, vous pouvez nous envoyer directement les informations de votre véhicule
+          via la page contact.
         </p>
       </div>
     </Reveal>
@@ -150,6 +160,10 @@ const faqSchema = {
               <li class="flex gap-3">
                 <span class="service-bullet mt-2 shrink-0"></span>
                 <span>Réparation électronique</span>
+              </li>
+              <li class="flex gap-3">
+                <span class="service-bullet mt-2 shrink-0"></span>
+                <span>Performance moteur</span>
               </li>
             </ul>
 
@@ -203,6 +217,9 @@ const faqSchema = {
           <a href="/services/reparation" class="btn btn-outline border-white/20 text-white hover:bg-white/10">
             Réparation électronique
           </a>
+          <a href="/services/performance" class="btn btn-outline border-white/20 text-white hover:bg-white/10">
+            Performance moteur
+          </a>
         </div>
       </div>
     </Reveal>
@@ -226,7 +243,7 @@ const faqSchema = {
             <a class="btn btn-primary shadow-lg shadow-primary/25" href="/contact">
               Demander un avis
             </a>
-            <a class="btn btn-ghost border border-white/15" href="/services">
+            <a class="btn btn-ghost  border border-white/15" href="/services">
               Nos services
             </a>
           </div>
@@ -341,20 +358,21 @@ const faqSchema = {
         font-size: 14px;
         line-height: 1.7;
       }
-      .faq-link-card{
-  display:block;
-  border:1px solid rgba(255,255,255,.10);
-  background:rgba(255,255,255,.04);
-  border-radius:1.5rem;
-  padding:1.25rem;
-  transition: transform .25s ease, border-color .25s ease, background .25s ease;
-}
 
-.faq-link-card:hover{
-  transform: translateY(-2px);
-  border-color: rgba(255,255,255,.18);
-  background: rgba(255,255,255,.06);
-}
+      .faq-link-card{
+        display:block;
+        border:1px solid rgba(255,255,255,.10);
+        background:rgba(255,255,255,.04);
+        border-radius:1.5rem;
+        padding:1.25rem;
+        transition: transform .25s ease, border-color .25s ease, background .25s ease;
+      }
+
+      .faq-link-card:hover{
+        transform: translateY(-2px);
+        border-color: rgba(255,255,255,.18);
+        background: rgba(255,255,255,.06);
+      }
     }
   </style>
 </BaseLayout>

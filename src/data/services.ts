@@ -1,5 +1,5 @@
 export type Service = {
-  slug: "diagnostic" | "programmation" | "reparation";
+  slug: "diagnostic" | "programmation" | "reparation" | "performance";
   name: string;
   short: string; // petit résumé (cards)
   seo: {
@@ -172,6 +172,57 @@ export const services: Service[] = [
         step: "03",
         title: "Tests & restitution",
         text: "Tests fonctionnels avant/après, contrôle défauts et restitution avec explications.",
+      },
+    ],
+  },
+
+  {
+    slug: "performance",
+    name: "Performance moteur",
+    short:
+      "Optimisation moteur, amélioration de l’agrément de conduite et interventions performance selon la configuration du véhicule.",
+    seo: {
+      title: "Performance moteur | Auto Softronics",
+      description:
+        "Optimisation performance moteur, amélioration du couple et de l’agrément de conduite, interventions électroniques et réglages selon compatibilité.",
+    },
+    hero: {
+      eyebrow: "Service 04 — Performance",
+      title: "Performance moteur",
+      subtitle:
+        "Booster vos performances, augmenter le plaisir de conduite et profitez d’une optimisation de consommation.",
+    },
+    highlights: [
+      { label: "Optimisé", value: "Couple & agrément" },
+      { label: "Maîtrisé", value: "Contrôles avant/après" },
+      { label: "Compatible", value: "Selon véhicule" },
+    ],
+    includes: [
+      "Lecture et sauvegarde des données d’origine du calculateur moteur (ECU)",
+      "Optimisation de la boite à transmission automatique",
+      "Analyse de l’état du véhicule et des paramètres moteur",
+      "Optimisation de la cartographie moteur (Stage 1, 2, 3)",
+      "Amélioration du couple, de la puissance et de la réactivité",
+      "Respect des tolérances et des limites constructeur",
+      "Écriture de la cartographie optimisée dans le calculateur",
+      "Tests de fonctionnement après intervention",
+      "Vérification de l’absence de défauts électroniques",
+    ],
+    process: [
+      {
+        step: "01",
+        title: "Analyse & lecture ECU",
+        text: "Lecture complète des données du calculateur moteur et analyse des paramètres afin d’assurer une base saine avant optimisation.",
+      },
+      {
+        step: "02",
+        title: "Optimisation sur mesure",
+        text: "Ajustement de la cartographie moteur (Stage 1) pour améliorer les performances (couple, puissance, réactivité) dans le respect des limites mécaniques.",
+      },
+      {
+        step: "03",
+        title: "Validation & contrôle",
+        text: "Tests et contrôles après intervention avec vérification des paramètres moteur et absence de défauts.",
       },
     ],
   },
