@@ -38,7 +38,7 @@ const items = [
     <div class="grid lg:grid-cols-12 gap-10 items-start">
       <!-- Sticky left -->
       <div class="lg:col-span-5 lg:sticky lg:top-24">
-        <p class="text-white/60 font-medium">Faites défiler.</p>
+        <p class="text-white font-medium">Faites défiler.</p>
 
         <h2 class="mt-3 text-4xl md:text-5xl font-bold leading-tight">
           Un process
@@ -50,9 +50,9 @@ const items = [
 
         <!-- Dynamic panel -->
         <div class="mt-8 rounded-3xl border border-white/10 bg-base-200/70 backdrop-blur p-6 md:p-7">
-          <div class="text-sm text-white/60 font-semibold" id="ss-eyebrow">{items[0].eyebrow}</div>
+          <div class="text-sm text-white font-semibold" id="ss-eyebrow">{items[0].eyebrow}</div>
           <div class="mt-2 text-2xl md:text-3xl font-bold" id="ss-title">{items[0].title}</div>
-          <p class="mt-3 text-white/70" id="ss-desc">{items[0].desc}</p>
+          <p class="mt-3 text-white" id="ss-desc">{items[0].desc}</p>
 
           <div class="mt-5 flex gap-3">
             <a id="ss-link" href={items[0].href} class="btn btn-primary btn-sm">Détails</a>
@@ -61,7 +61,7 @@ const items = [
 
           <!-- Progress bar -->
           <div class="mt-6">
-            <div class="flex items-center justify-between text-xs text-white/50">
+            <div class="flex items-center justify-between text-xs text-white">
               <span>Progression</span>
               <span id="ss-progress-text">1 / {items.length}</span>
             </div>
@@ -86,15 +86,15 @@ const items = [
             <div class="card-body p-7 md:p-9">
               <div class="flex items-center justify-between gap-4">
                 <div class="text-sm text-white/60 font-semibold">{it.eyebrow}</div>
-                <div class="badge badge-outline border-white/20 text-white/70">Autosoftronics</div>
+                <div class="badge badge-outline border-white/20 text-white">Autosoftronics</div>
               </div>
 
               <h3 class="mt-3 text-2xl md:text-3xl font-bold">{it.title}</h3>
-              <p class="mt-3 text-white/70">{it.desc}</p>
+              <p class="mt-3 text-white">{it.desc}</p>
 
               <ul class="mt-6 grid sm:grid-cols-3 gap-3">
                 {it.bullets.map((b) => (
-                  <li class="rounded-2xl bg-base-300/50 border border-white/10 px-4 py-3 text-sm text-white/75">
+                  <li class="rounded-2xl bg-base-300/50 border border-white/10 px-4 py-3 text-sm text-white">
                     {b}
                   </li>
                 ))}

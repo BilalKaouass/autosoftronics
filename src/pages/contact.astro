@@ -26,7 +26,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       <div class="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div class="text-center">
-          <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white/70 backdrop-blur">
+          <div class="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-2 text-sm text-white backdrop-blur">
             <span class="h-2 w-2 rounded-full bg-success"></span>
             Contact
           </div>
@@ -35,7 +35,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             Faites votre demande
           </h1>
 
-          <p class="mt-4 text-white/70 max-w-2xl mx-auto leading-relaxed">
+          <p class="mt-4 text-white max-w-2xl mx-auto leading-relaxed">
             Décrivez votre véhicule et le problème. On vous répond rapidement avec une solution claire.
           </p>
         </div>
@@ -50,12 +50,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
               <div class="mb-6 flex items-start justify-between gap-4">
                 <div>
                   <h2 class="text-xl font-semibold">Formulaire</h2>
-                  <p class="mt-1 text-sm text-white/60">
+                  <p class="mt-1 text-sm text-white">
                     Plus c’est précis, plus on vous aide vite.
                   </p>
                 </div>
 
-                <div class="hidden md:flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-xs text-white/70">
+                <div class="hidden md:flex items-center gap-2 rounded-2xl border border-white/10 bg-white/5 px-4 py-2 text-xs text-white">
                   <span class="h-2 w-2 rounded-full bg-success"></span>
                   Réponse rapide
                 </div>
@@ -76,7 +76,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 <div class="grid md:grid-cols-2 gap-4">
                   <label class="form-control">
                     <div class="label">
-                      <span class="label-text text-white/80">Nom</span>
+                      <span class="label-text text-white">Nom</span>
                     </div>
                     <input
                       type="text"
@@ -89,7 +89,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                   <label class="form-control">
                     <div class="label">
-                      <span class="label-text text-white/80">Téléphone</span>
+                      <span class="label-text text-white">Téléphone</span>
                     </div>
                     <input
                       type="tel"
@@ -103,7 +103,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 <div class="grid md:grid-cols-2 gap-4">
                   <label class="form-control">
                     <div class="label">
-                      <span class="label-text text-white/80">Email</span>
+                      <span class="label-text text-white">Email</span>
                     </div>
                     <input
                       type="email"
@@ -116,7 +116,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                   <label class="form-control">
                     <div class="label">
-                      <span class="label-text text-white/80">Véhicule</span>
+                      <span class="label-text text-white">Véhicule</span>
                     </div>
                     <input
                       type="text"
@@ -129,8 +129,8 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
                 <label class="form-control">
                   <div class="label">
-                    <span class="label-text text-white/80">Votre demande</span>
-                    <span class="label-text-alt text-white/45">Diagnostic / Programmation / Réparation</span>
+                    <span class="label-text text-white">Votre demande</span>
+                    <span class="label-text-alt text-white">Diagnostic / Programmation / Réparation</span>
                   </div>
                   <textarea
                     name="message"
@@ -141,7 +141,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                   ></textarea>
                 </label>
 
-                <div class="mt-1 text-xs text-white/50">
+                <div class="mt-1 text-xs text-white">
                   En envoyant ce formulaire, vous acceptez d’être recontacté au sujet de votre demande.
                 </div>
 
@@ -163,17 +163,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 </div>
 
                 <div class="mt-5 grid gap-3 sm:grid-cols-3">
-                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
-                    <div class="font-semibold text-white/85">Méthode</div>
-                    <div class="text-xs text-white/55">Diagnostic → intervention → validation</div>
+                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white">
+                    <div class="font-semibold text-white">Méthode</div>
+                    <div class="text-xs text-white">Diagnostic → intervention → validation</div>
                   </div>
-                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
-                    <div class="font-semibold text-white/85">Sécurité</div>
-                    <div class="text-xs text-white/55">Sauvegarde ECU avant écriture</div>
+                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white">
+                    <div class="font-semibold text-white">Sécurité</div>
+                    <div class="text-xs text-white">Sauvegarde ECU avant écriture</div>
                   </div>
-                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white/70">
-                    <div class="font-semibold text-white/85">Clarté</div>
-                    <div class="text-xs text-white/55">Compte-rendu concret</div>
+                  <div class="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white">
+                    <div class="font-semibold text-white">Clarté</div>
+                    <div class="text-xs text-white">Compte-rendu concret</div>
                   </div>
                 </div>
               </form>
@@ -184,7 +184,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           <aside class="space-y-4">
             <div class="rounded-3xl border border-white/10 bg-base-200/25 backdrop-blur-xl p-6">
               <h3 class="text-lg font-semibold">Réponse la plus rapide</h3>
-              <p class="mt-2 text-sm text-white/65">
+              <p class="mt-2 text-sm text-white">
                 Si c’est urgent, contactez-nous directement :
               </p>
 
@@ -206,11 +206,11 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <div class="rounded-3xl border border-white/10 bg-base-200/25 backdrop-blur-xl p-6">
               <h3 class="text-lg font-semibold">Infos pratiques</h3>
 
-              <div class="mt-4 space-y-3 text-sm text-white/70">
+              <div class="mt-4 space-y-3 text-sm text-white">
                 <div class="flex items-start gap-3">
                   <span class="mt-1 h-2 w-2 rounded-full bg-primary"></span>
                   <div>
-                    <div class="font-semibold text-white/85">Adresse</div>
+                    <div class="font-semibold text-white">Adresse</div>
                     <div class="text-white/60">Rue des motards 130, 6200 Charleroi</div>
                   </div>
                 </div>
@@ -218,16 +218,16 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                 <div class="flex items-start gap-3">
                   <span class="mt-1 h-2 w-2 rounded-full bg-secondary"></span>
                   <div>
-                    <div class="font-semibold text-white/85">Horaires</div>
-                    <div class="text-white/60">Mar–Ven • 14:00–21:30 / Sam • 14:00–18:00</div>
+                    <div class="font-semibold text-white">Horaires</div>
+                    <div class="text-white">Mar–Ven • 14:00–21:30 / Sam • 14:00–18:00</div>
                   </div>
                 </div>
 
                 <div class="flex items-start gap-3">
                   <span class="mt-1 h-2 w-2 rounded-full bg-accent"></span>
                   <div>
-                    <div class="font-semibold text-white/85">Ce qu’on vous demande</div>
-                    <div class="text-white/60">Marque + modèle + année + symptômes / défauts.</div>
+                    <div class="font-semibold text-white">Ce qu’on vous demande</div>
+                    <div class="text-white">Marque + modèle + année + symptômes / défauts.</div>
                   </div>
                 </div>
               </div>
@@ -235,7 +235,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
             <div class="rounded-3xl border border-white/10 bg-base-200/25 backdrop-blur-xl p-6">
               <h3 class="text-lg font-semibold">Pourquoi c’est simple</h3>
-              <ul class="mt-4 space-y-2 text-sm text-white/65">
+              <ul class="mt-4 space-y-2 text-sm text-white">
                 <li class="flex items-center gap-2">
                   <span class="h-1.5 w-1.5 rounded-full bg-success"></span>
                   Réponse rapide et claire
