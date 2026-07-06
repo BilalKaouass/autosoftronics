@@ -135,7 +135,6 @@ const faqSchema = {
       class="pointer-events-none absolute inset-0 z-0"
       style={`background: radial-gradient(circle at 80% 10%, rgba(var(--tone-b), .16), transparent 55%);`}
     ></div>
-    <div class="pointer-events-none absolute inset-0 z-0 opacity-[0.04] bg-[radial-gradient(circle_at_1px_1px,white_1px,transparent_1px)] [background-size:22px_22px]"></div>
 
     <div class="relative z-10 max-w-6xl mx-auto px-4">
       {/* HERO */}
@@ -341,18 +340,27 @@ const faqSchema = {
       .svc, .svc * { min-width: 0; }
 
       /* ✅ Image en vrai background CSS */
-      .svc-bg{
-        position: absolute;
-        inset: 0;
-        z-index: 0;
-        background-image: var(--service-bg);
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: .42;
-        filter: brightness(.92) contrast(1.12) saturate(1.10);
-        transform: scale(1.04);
-      }
+      .svc-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--service-bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: .42;
+  filter: brightness(.92) contrast(1.12) saturate(1.10);
+  transform: scale(1.04);
+}
+
+/* --- Adaptation mobile --- */
+@media (max-width: 768px) {
+  .svc-bg {
+    background-size: 100% auto;    /* remplace cover */
+    background-position: top center; /* centre en largeur, haut visible */
+    transform: scale(1);           /* on enlève le scale pour éviter un décalage */
+  }
+}
 
       /* Glass card */
       .glass-card{
