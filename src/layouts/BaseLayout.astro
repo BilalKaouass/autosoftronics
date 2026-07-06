@@ -7,16 +7,16 @@ import Seo from "../components/Seo.astro";
 const {
   title,
   description,
-  canonical = Astro.url.href,
+  canonical = "https://www.autosoftronics.com" + (Astro.url.pathname === "/" ? "" : Astro.url.pathname),
 } = Astro.props;
 
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": ["AutoRepair", "LocalBusiness"],
   "name": "Autosoftronics",
-  "url": "https://autosoftronics.be",
-  "logo": "https://autosoftronics.be/assets/brand/icon.png",
-  "image": "https://autosoftronics.be/assets/brand/bg-atelier.jpg",
+  "url": "https://autosoftronics.com",
+  "logo": "https://autosoftronics.com/assets/brand/icon.png",
+  "image": "https://autosoftronics.com/assets/brand/bg-atelier.jpg",
   "description":
     "Diagnostic électronique automobile, programmation ECU, codage de modules et réparation électronique multimarque.",
   "telephone": "+32470139975",
